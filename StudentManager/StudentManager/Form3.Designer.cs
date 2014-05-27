@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.logo = new System.Windows.Forms.Panel();
             this.messageContainer = new System.Windows.Forms.Panel();
             this.message = new System.Windows.Forms.TextBox();
             this.history = new System.Windows.Forms.TextBox();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.messageContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +98,10 @@
             this.closeButton.TabIndex = 14;
             this.closeButton.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,5 +131,6 @@
         private System.Windows.Forms.TextBox history;
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
