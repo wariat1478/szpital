@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.avatar = new System.Windows.Forms.PictureBox();
             this.name = new System.Windows.Forms.Label();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.avatar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +89,14 @@
             this.panel4.Size = new System.Drawing.Size(52, 52);
             this.panel4.TabIndex = 10;
             // 
+            // avatar
+            // 
+            this.avatar.Location = new System.Drawing.Point(1, 1);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(50, 50);
+            this.avatar.TabIndex = 0;
+            this.avatar.TabStop = false;
+            // 
             // name
             // 
             this.name.AutoSize = true;
@@ -137,15 +144,6 @@
             this.closeButton.TabIndex = 6;
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // avatar
-            // 
-            this.avatar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("avatar.ErrorImage")));
-            this.avatar.Location = new System.Drawing.Point(1, 1);
-            this.avatar.Name = "avatar";
-            this.avatar.Size = new System.Drawing.Size(50, 50);
-            this.avatar.TabIndex = 0;
-            this.avatar.TabStop = false;
             // 
             // Form2
             // 

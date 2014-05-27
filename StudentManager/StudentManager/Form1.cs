@@ -56,9 +56,10 @@ namespace StudentManager
         {
             if (this.manager.DB.Count("select count(*) FROM users where username='" + username.Text + "' AND password='" + CalculateSHA1(password.Text, Encoding.Unicode) + "'") == 1)
             {
-                this.manager.Session.Add("id", "1");
-                this.manager.Session.Add("first_name", "Łukasz");
-                this.manager.Session.Add("last_name", "Golder");
+                List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+                list = this.manager.DB.Select("select * from users where username='" + username.Text + "'");
+
+                this.manager.Session = list[0];
 
                 Form f2 = new Form2(this.manager);
                 f2.Show();

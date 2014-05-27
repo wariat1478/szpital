@@ -105,11 +105,10 @@ namespace StudentManager
                 while (dataReader.Read())
                 {
                     Dictionary<string, string> row = new Dictionary<string, string>();
-                    foreach (string key in dataReader)
+                    for (int i = 0; i < dataReader.FieldCount; i++)
                     {
-                        row.Add(key, Convert.ToString(dataReader[key]));
+                        row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
                     }
-
                     list.Add(row);
                 }
 
@@ -124,6 +123,7 @@ namespace StudentManager
 
         public int Count(string query)
         {
+            int count = 0;
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query.ToLower(), conn);
@@ -131,14 +131,14 @@ namespace StudentManager
 
                 if (dataReader.Read())
                 {
-                    return Convert.ToInt32(dataReader["count(*)"]);
+                    count = Convert.ToInt32(dataReader["count(*)"]);
                 }
 
                 dataReader.Close();
                 this.CloseConnection();
             }
 
-            return 0;
+            return count;
         }
     }
 }

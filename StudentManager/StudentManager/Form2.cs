@@ -31,6 +31,10 @@ namespace StudentManager
             this.manager = manager;
 
             name.Text = this.manager.Session["first_name"] + " " + this.manager.Session["last_name"];
+            if (this.manager.Session["avatar"].Length == 0)
+            {
+                avatar.Image = StudentManager.Properties.Resources.avatar;
+            }
         }
 
         private void Form2_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
