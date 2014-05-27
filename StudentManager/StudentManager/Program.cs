@@ -16,7 +16,10 @@ namespace StudentManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Manager manager = new Manager();
+
+            Application.Run();
         }
     }
 }

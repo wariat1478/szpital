@@ -50,7 +50,7 @@
             this.closeButton.Location = new System.Drawing.Point(361, 10);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(9, 9);
-            this.closeButton.TabIndex = 0;
+            this.closeButton.TabIndex = 4;
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
@@ -62,7 +62,7 @@
             this.minimizeButton.Location = new System.Drawing.Point(346, 10);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(9, 9);
-            this.minimizeButton.TabIndex = 1;
+            this.minimizeButton.TabIndex = 5;
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
@@ -89,7 +89,7 @@
             this.register.Location = new System.Drawing.Point(55, 400);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(270, 40);
-            this.register.TabIndex = 3;
+            this.register.TabIndex = 6;
             this.register.Text = "Załóż bezpłatne konto";
             this.register.UseVisualStyleBackColor = true;
             // 
@@ -103,7 +103,7 @@
             this.username.Location = new System.Drawing.Point(6, 11);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(288, 18);
-            this.username.TabIndex = 4;
+            this.username.TabIndex = 0;
             // 
             // password
             // 
@@ -115,7 +115,7 @@
             this.password.Name = "password";
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(288, 18);
-            this.password.TabIndex = 5;
+            this.password.TabIndex = 1;
             // 
             // login
             // 
@@ -127,7 +127,7 @@
             this.login.Location = new System.Drawing.Point(232, 264);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(108, 40);
-            this.login.TabIndex = 6;
+            this.login.TabIndex = 3;
             this.login.Text = "Zaloguj";
             this.login.UseVisualStyleBackColor = true;
             this.login.Click += new System.EventHandler(this.login_Click);
