@@ -35,6 +35,10 @@
             this.username = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.login = new System.Windows.Forms.Button();
+            this.usernameContainer = new System.Windows.Forms.Panel();
+            this.passwordContainer = new System.Windows.Forms.Panel();
+            this.usernameContainer.SuspendLayout();
+            this.passwordContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // closeButton
@@ -90,17 +94,26 @@
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(55, 145);
+            this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.username.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.username.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.username.Location = new System.Drawing.Point(6, 11);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(100, 20);
+            this.username.Size = new System.Drawing.Size(288, 18);
             this.username.TabIndex = 4;
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(55, 186);
+            this.password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.password.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.password.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.password.Location = new System.Drawing.Point(6, 11);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(100, 20);
+            this.password.Size = new System.Drawing.Size(288, 18);
             this.password.TabIndex = 5;
             // 
             // login
@@ -116,6 +129,31 @@
             this.login.TabIndex = 6;
             this.login.Text = "Zaloguj";
             this.login.UseVisualStyleBackColor = true;
+            this.login.Click += new System.EventHandler(this.login_Click);
+            // 
+            // usernameContainer
+            // 
+            this.usernameContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.usernameContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.usernameContainer.Controls.Add(this.username);
+            this.usernameContainer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.usernameContainer.Location = new System.Drawing.Point(39, 160);
+            this.usernameContainer.Name = "usernameContainer";
+            this.usernameContainer.Padding = new System.Windows.Forms.Padding(6, 11, 6, 6);
+            this.usernameContainer.Size = new System.Drawing.Size(302, 42);
+            this.usernameContainer.TabIndex = 7;
+            // 
+            // passwordContainer
+            // 
+            this.passwordContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.passwordContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordContainer.Controls.Add(this.password);
+            this.passwordContainer.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.passwordContainer.Location = new System.Drawing.Point(39, 212);
+            this.passwordContainer.Name = "passwordContainer";
+            this.passwordContainer.Padding = new System.Windows.Forms.Padding(6, 11, 6, 6);
+            this.passwordContainer.Size = new System.Drawing.Size(302, 42);
+            this.passwordContainer.TabIndex = 8;
             // 
             // Form1
             // 
@@ -123,9 +161,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentManager.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(380, 450);
+            this.Controls.Add(this.passwordContainer);
+            this.Controls.Add(this.usernameContainer);
             this.Controls.Add(this.login);
-            this.Controls.Add(this.password);
-            this.Controls.Add(this.username);
             this.Controls.Add(this.register);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.minimizeButton);
@@ -134,6 +172,10 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.usernameContainer.ResumeLayout(false);
+            this.usernameContainer.PerformLayout();
+            this.passwordContainer.ResumeLayout(false);
+            this.passwordContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +190,8 @@
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Button login;
+        private System.Windows.Forms.Panel usernameContainer;
+        private System.Windows.Forms.Panel passwordContainer;
     }
 }
 
