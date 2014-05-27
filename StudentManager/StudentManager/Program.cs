@@ -20,6 +20,7 @@ namespace StudentManager
             Manager manager = new Manager();
 
             Application.Run();
+            new Form2();
         }
     }
 }

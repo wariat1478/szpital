@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace StudentManager
 {
-    public class Manager
+    class Manager
     {
         public DB DB;
         public Dictionary<string, string> Session; 
