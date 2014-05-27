@@ -37,6 +37,7 @@
             this.login = new System.Windows.Forms.Button();
             this.usernameContainer = new System.Windows.Forms.Panel();
             this.passwordContainer = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.Panel();
             this.usernameContainer.SuspendLayout();
             this.passwordContainer.SuspendLayout();
             this.SuspendLayout();
@@ -155,12 +156,22 @@
             this.passwordContainer.Size = new System.Drawing.Size(302, 42);
             this.passwordContainer.TabIndex = 8;
             // 
+            // logo
+            // 
+            this.logo.BackgroundImage = global::StudentManager.Properties.Resources.logo;
+            this.logo.Location = new System.Drawing.Point(39, 56);
+            this.logo.Name = "logo";
+            this.logo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.logo.Size = new System.Drawing.Size(211, 80);
+            this.logo.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StudentManager.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(380, 450);
+            this.Controls.Add(this.logo);
             this.Controls.Add(this.passwordContainer);
             this.Controls.Add(this.usernameContainer);
             this.Controls.Add(this.login);
@@ -192,6 +203,7 @@
         private System.Windows.Forms.Button login;
         private System.Windows.Forms.Panel usernameContainer;
         private System.Windows.Forms.Panel passwordContainer;
+        private System.Windows.Forms.Panel logo;
     }
 }
 
