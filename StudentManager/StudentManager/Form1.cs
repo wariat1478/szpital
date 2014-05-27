@@ -56,7 +56,12 @@ namespace StudentManager
         {
             if (this.manager.DB.Count("select count(*) FROM users where username='" + username.Text + "' AND password='" + CalculateSHA1(password.Text, Encoding.Unicode) + "'") == 1)
             {
-                MessageBox.Show("Zalogowany");
+                this.manager.Session.Add("id", "1");
+                this.manager.Session.Add("first_name", "Łukasz");
+                this.manager.Session.Add("last_name", "Golder");
+
+                Form f2 = new Form2(this.manager);
+                f2.Show();
             }
         }
 

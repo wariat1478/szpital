@@ -93,9 +93,31 @@ namespace StudentManager
         {
         }
 
-        public List<string>[] Select()
+        public List<Dictionary<string, string>> Select(string query)
         {
-            List<string>[] list = new List<string>[0];
+            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Dictionary<string, string> row = new Dictionary<string, string>();
+                    foreach (string key in dataReader)
+                    {
+                        row.Add(key, Convert.ToString(dataReader[key]));
+                    }
+
+                    list.Add(row);
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return list;
+            }
 
             return list;
         }
