@@ -86,6 +86,7 @@
             this.minimizeButton.Size = new System.Drawing.Size(9, 9);
             this.minimizeButton.TabIndex = 13;
             this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
             // closeButton
             // 
@@ -97,9 +98,12 @@
             this.closeButton.Size = new System.Drawing.Size(9, 9);
             this.closeButton.TabIndex = 14;
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form3
