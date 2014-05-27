@@ -16,5 +16,18 @@ namespace StudentManager
         {
             InitializeComponent();
         }
+
+        private void message_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox txtChat = (TextBox)sender;
+
+            if ((txtChat.Lines.Length > 1) && (e.KeyCode == Keys.Enter))
+            {
+                //DB.Insert();
+            }
+
+        }
     }
 }
+
+      

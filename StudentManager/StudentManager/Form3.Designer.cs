@@ -62,6 +62,7 @@
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(350, 80);
             this.message.TabIndex = 0;
+            this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp);
             // 
             // history
             // 
