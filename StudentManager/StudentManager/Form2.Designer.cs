@@ -35,6 +35,7 @@
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -65,6 +66,7 @@
             // panel3
             // 
             this.panel3.BackgroundImage = global::StudentManager.Properties.Resources.header;
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.name);
             this.panel3.Controls.Add(this.minimizeButton);
             this.panel3.Controls.Add(this.maximizeButton);
@@ -117,11 +119,19 @@
             this.name.BackColor = System.Drawing.Color.Transparent;
             this.name.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(143)))), ((int)(((byte)(220)))));
-            this.name.Location = new System.Drawing.Point(71, 52);
+            this.name.Location = new System.Drawing.Point(76, 56);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(102, 17);
             this.name.TabIndex = 9;
             this.name.Text = "Łukasz Golder";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.panel4.Location = new System.Drawing.Point(18, 52);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(52, 52);
+            this.panel4.TabIndex = 10;
             // 
             // Form2
             // 
@@ -152,5 +162,6 @@
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Label name;
+        private System.Windows.Forms.Panel panel4;
     }
 }

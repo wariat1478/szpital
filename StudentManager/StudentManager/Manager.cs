@@ -9,7 +9,7 @@ namespace StudentManager
     class Manager
     {
         public DB DB;
-        public Dictionary<string, string> Session; 
+        public Dictionary<string, string> Session = new Dictionary<string, string>(); 
 
         public Manager()
         {
