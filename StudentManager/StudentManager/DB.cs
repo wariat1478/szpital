@@ -85,8 +85,15 @@ namespace StudentManager
             }
         }
 
-        public void Update()
+        public void Update(string query)
         {
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                this.CloseConnection();
+            }
         }
 
         public void Delete()

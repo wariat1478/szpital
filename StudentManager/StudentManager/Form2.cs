@@ -35,6 +35,38 @@ namespace StudentManager
             {
                 avatar.Image = StudentManager.Properties.Resources.avatar;
             }
+
+            switch (this.manager.Session["status"])
+            {
+                case "1":
+                    statusImage.Image = StudentManager.Properties.Resources.active;
+                    status.Text = "Dostępny";
+                    break;
+
+                case "2":
+                    statusImage.Image = StudentManager.Properties.Resources.away;
+                    status.Text = "Nieobecny";
+                    break;
+
+                case "3":
+                    statusImage.Image = StudentManager.Properties.Resources.busy;
+                    status.Text = "Zajęty";
+                    break;
+            }
+
+            changeStatus.Location = new Point(status.Width + 96, 85);
+
+            List<Dictionary<string, string>> friends = new List<Dictionary<string, string>>();
+            friends = this.manager.DB.Select("select * from friends f left join users u on f.friend=u.user_id where f.user=" + this.manager.Session["user_id"]);
+
+            Label firendName = new Label();
+            for (int i = 0; i < friends.Count; i++)
+            {
+                firendName = new Label();
+                firendName.Name = "friend" + friends[i]["friend_id"];
+                firendName.Text = friends[i]["first_name"] + " " + friends[i]["last_name"];
+                firendName.Parent = flowLayoutPanel1;
+            }
         }
 
         private void Form2_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)

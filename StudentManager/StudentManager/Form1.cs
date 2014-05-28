@@ -44,7 +44,7 @@ namespace StudentManager
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -56,12 +56,16 @@ namespace StudentManager
         {
             if (this.manager.DB.Count("select count(*) FROM users where username='" + username.Text + "' AND password='" + CalculateSHA1(password.Text, Encoding.Unicode) + "'") == 1)
             {
+                this.manager.DB.Update("update users set status=1 where username='" + username.Text + "'");
+
                 List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
                 list = this.manager.DB.Select("select * from users where username='" + username.Text + "'");
 
                 this.manager.Session = list[0];
 
                 Form f2 = new Form2(this.manager);
+                f2.WindowState = FormWindowState.Normal;
+                f2.BringToFront();
                 f2.Show();
             }
         }
