@@ -67,6 +67,8 @@ namespace StudentManager
                 f2.WindowState = FormWindowState.Normal;
                 f2.BringToFront();
                 f2.Show();
+
+                this.Close();
             }
         }
 

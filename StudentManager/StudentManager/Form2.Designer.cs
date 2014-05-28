@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.select = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.Button();
+            this.setBusy = new System.Windows.Forms.Button();
+            this.setAway = new System.Windows.Forms.Button();
+            this.setActive = new System.Windows.Forms.Button();
             this.friends = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,6 +50,7 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.select.SuspendLayout();
             this.friends.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusImage)).BeginInit();
@@ -65,6 +72,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.select);
             this.panel2.Controls.Add(this.friends);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,6 +81,91 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(356, 446);
             this.panel2.TabIndex = 0;
+            // 
+            // select
+            // 
+            this.select.BackColor = System.Drawing.Color.Transparent;
+            this.select.BackgroundImage = global::StudentManager.Properties.Resources.select;
+            this.select.Controls.Add(this.logout);
+            this.select.Controls.Add(this.setBusy);
+            this.select.Controls.Add(this.setAway);
+            this.select.Controls.Add(this.setActive);
+            this.select.Location = new System.Drawing.Point(53, 103);
+            this.select.Name = "select";
+            this.select.Size = new System.Drawing.Size(120, 128);
+            this.select.TabIndex = 1;
+            this.select.Visible = false;
+            // 
+            // logout
+            // 
+            this.logout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.logout.FlatAppearance.BorderSize = 0;
+            this.logout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logout.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logout.Location = new System.Drawing.Point(1, 100);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(118, 23);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Wyloguj";
+            this.logout.UseVisualStyleBackColor = true;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // setBusy
+            // 
+            this.setBusy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.setBusy.FlatAppearance.BorderSize = 0;
+            this.setBusy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.setBusy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.setBusy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.setBusy.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.setBusy.Image = global::StudentManager.Properties.Resources.busy;
+            this.setBusy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.setBusy.Location = new System.Drawing.Point(1, 67);
+            this.setBusy.Name = "setBusy";
+            this.setBusy.Size = new System.Drawing.Size(118, 23);
+            this.setBusy.TabIndex = 2;
+            this.setBusy.Text = "Zajęty";
+            this.setBusy.UseVisualStyleBackColor = true;
+            this.setBusy.Click += new System.EventHandler(this.setBusy_Click);
+            // 
+            // setAway
+            // 
+            this.setAway.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.setAway.FlatAppearance.BorderSize = 0;
+            this.setAway.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.setAway.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.setAway.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.setAway.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.setAway.Image = global::StudentManager.Properties.Resources.away;
+            this.setAway.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.setAway.Location = new System.Drawing.Point(1, 39);
+            this.setAway.Name = "setAway";
+            this.setAway.Size = new System.Drawing.Size(118, 23);
+            this.setAway.TabIndex = 1;
+            this.setAway.Text = "Nieobecny";
+            this.setAway.UseVisualStyleBackColor = true;
+            this.setAway.Click += new System.EventHandler(this.setAway_Click);
+            // 
+            // setActive
+            // 
+            this.setActive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.setActive.FlatAppearance.BorderSize = 0;
+            this.setActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.setActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.setActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.setActive.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.setActive.Image = global::StudentManager.Properties.Resources.active;
+            this.setActive.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.setActive.Location = new System.Drawing.Point(1, 10);
+            this.setActive.Name = "setActive";
+            this.setActive.Size = new System.Drawing.Size(118, 23);
+            this.setActive.TabIndex = 0;
+            this.setActive.Text = "Dostępny";
+            this.setActive.UseVisualStyleBackColor = true;
+            this.setActive.Click += new System.EventHandler(this.setActive_Click);
             // 
             // friends
             // 
@@ -111,12 +204,15 @@
             this.changeStatus.BackColor = System.Drawing.Color.Transparent;
             this.changeStatus.BackgroundImage = global::StudentManager.Properties.Resources.dropdown;
             this.changeStatus.FlatAppearance.BorderSize = 0;
+            this.changeStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.changeStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.changeStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeStatus.Location = new System.Drawing.Point(159, 84);
             this.changeStatus.Name = "changeStatus";
             this.changeStatus.Size = new System.Drawing.Size(9, 10);
             this.changeStatus.TabIndex = 13;
             this.changeStatus.UseVisualStyleBackColor = false;
+            this.changeStatus.Click += new System.EventHandler(this.changeStatus_Click);
             // 
             // status
             // 
@@ -128,6 +224,7 @@
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(0, 14);
             this.status.TabIndex = 12;
+            this.status.Click += new System.EventHandler(this.changeStatus_Click);
             // 
             // statusImage
             // 
@@ -138,6 +235,7 @@
             this.statusImage.Size = new System.Drawing.Size(10, 10);
             this.statusImage.TabIndex = 11;
             this.statusImage.TabStop = false;
+            this.statusImage.Click += new System.EventHandler(this.changeStatus_Click);
             // 
             // panel4
             // 
@@ -212,12 +310,14 @@
             this.ClientSize = new System.Drawing.Size(360, 450);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.Padding = new System.Windows.Forms.Padding(1);
-            this.Text = "Form2";
+            this.Text = "Znajomi";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.select.ResumeLayout(false);
             this.friends.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -244,5 +344,10 @@
         private System.Windows.Forms.Label status;
         private System.Windows.Forms.PictureBox statusImage;
         private System.Windows.Forms.Button changeStatus;
+        private System.Windows.Forms.Panel select;
+        private System.Windows.Forms.Button setBusy;
+        private System.Windows.Forms.Button setAway;
+        private System.Windows.Forms.Button setActive;
+        private System.Windows.Forms.Button logout;
     }
 }

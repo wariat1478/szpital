@@ -36,25 +36,7 @@ namespace StudentManager
                 avatar.Image = StudentManager.Properties.Resources.avatar;
             }
 
-            switch (this.manager.Session["status"])
-            {
-                case "1":
-                    statusImage.Image = StudentManager.Properties.Resources.active;
-                    status.Text = "Dostępny";
-                    break;
-
-                case "2":
-                    statusImage.Image = StudentManager.Properties.Resources.away;
-                    status.Text = "Nieobecny";
-                    break;
-
-                case "3":
-                    statusImage.Image = StudentManager.Properties.Resources.busy;
-                    status.Text = "Zajęty";
-                    break;
-            }
-
-            changeStatus.Location = new Point(status.Width + 96, 85);
+            updateStatus();
 
             List<Dictionary<string, string>> friends = new List<Dictionary<string, string>>();
             friends = this.manager.DB.Select("select * from friends f left join users u on f.friend=u.user_id where f.user=" + this.manager.Session["user_id"]);
@@ -98,6 +80,65 @@ namespace StudentManager
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void setActive_Click(object sender, EventArgs e)
+        {
+            this.manager.DB.Update("update users set status=1 where user_id=" + Convert.ToInt32(this.manager.Session["user_id"]));
+            this.manager.Session["status"] = "1";
+            updateStatus();
+        }
+
+        private void setAway_Click(object sender, EventArgs e)
+        {
+            this.manager.DB.Update("update users set status=2 where user_id=" + Convert.ToInt32(this.manager.Session["user_id"]));
+            this.manager.Session["status"] = "2";
+            updateStatus();
+        }
+
+        private void setBusy_Click(object sender, EventArgs e)
+        {
+            this.manager.DB.Update("update users set status=3 where user_id=" + Convert.ToInt32(this.manager.Session["user_id"]));
+            this.manager.Session["status"] = "3";
+            updateStatus();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            this.manager.Session = new Dictionary<string, string>();
+            this.Close();
+
+            Form f1 = new Form1(this.manager);
+            f1.Show();
+        }
+
+        private void updateStatus()
+        {
+            switch (this.manager.Session["status"])
+            {
+                case "1":
+                    statusImage.Image = StudentManager.Properties.Resources.active;
+                    status.Text = "Dostępny";
+                    break;
+
+                case "2":
+                    statusImage.Image = StudentManager.Properties.Resources.away;
+                    status.Text = "Nieobecny";
+                    break;
+
+                case "3":
+                    statusImage.Image = StudentManager.Properties.Resources.busy;
+                    status.Text = "Zajęty";
+                    break;
+            }
+
+            changeStatus.Location = new Point(status.Width + 96, 85);
+            select.Visible = false;
+        }
+
+        private void changeStatus_Click(object sender, EventArgs e)
+        {
+            select.Visible = true;
         }
     }
 }
