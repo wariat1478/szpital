@@ -116,7 +116,7 @@
             this.Controls.Add(this.history);
             this.Controls.Add(this.messageContainer);
             this.Controls.Add(this.logo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form3";
             this.Text = "Form3";
             this.messageContainer.ResumeLayout(false);

@@ -21,9 +21,7 @@ namespace StudentManager
         {
             InitializeComponent();
             this.manager = manager;
-            foreach (var entry in this.manager.Session.Values)
-                userSender = entry;
-
+            userSender = this.manager.Session["first_name"];
             id = takeLast();
         }
 
@@ -32,7 +30,7 @@ namespace StudentManager
             int number=0;
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
             
-            list = this.manager.DB.Select("SELECT end FROM `chatlast` WHERE userSender='root' and userReceiver='root' order by end desc limit 1");
+            list = this.manager.DB.Select("SELECT end FROM `chatlast` WHERE userSender='"+userSender+"' and userReceiver='Lukasz' order by end desc limit 1");
             number = list.Count;
             if (number > 0)
             {
@@ -53,7 +51,7 @@ namespace StudentManager
             
             if ((txtChat.Lines.Length > 1) && (e.KeyCode == Keys.Enter))
             {
-                this.manager.DB.Insert("chat", new string[] { "userSender", "userReceiver", "content" }, new string[] { userSender, "root", txtChat.Text });
+                this.manager.DB.Insert("chat", new string[] { "userSender", "userReceiver", "content" }, new string[] { userSender, "Lukasz", txtChat.Text });
                 txtChat.Text = String.Empty;
             }
         }
@@ -65,25 +63,42 @@ namespace StudentManager
            
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
 
-            list = this.manager.DB.Select("SELECT id FROM `chat` WHERE id>"+Convert.ToString(id)+" and userReceiver='root' limit 1");
+            list = this.manager.DB.Select("SELECT id FROM `chat` WHERE id>" + Convert.ToString(id) + " and userSender='" + userSender + "' and userReceiver='Lukasz' limit 1");
             number = list.Count;
             if (number > 0)
             {
                 foreach (var entry in list[number - 1].Values)
                     id = Convert.ToInt32(entry);
 
-                list = this.manager.DB.Select("SELECT content FROM `chat` WHERE userReceiver='root' and id=" + Convert.ToString(id));
+                list = this.manager.DB.Select("SELECT content FROM `chat` WHERE userSender='" + userSender + "' and userReceiver='Lukasz' and id=" + Convert.ToString(id));
                 number = list.Count;
                 foreach (var entry in list[number - 1].Values)
                     tempt = entry;
 
-                history.AppendText("root: " + tempt);
+                history.AppendText(userSender+": " + tempt);
+                history.AppendText(Environment.NewLine);
+            }
+
+            list = this.manager.DB.Select("SELECT id FROM `chat` WHERE id>" + Convert.ToString(id) + " and userSender='Lukasz' and userReceiver='"+userSender+"' limit 1");
+            number = list.Count;
+            if (number > 0)
+            {
+                foreach (var entry in list[number - 1].Values)
+                    id = Convert.ToInt32(entry);
+
+                list = this.manager.DB.Select("SELECT content FROM `chat` WHERE userSender='Lukasz' and userReceiver='" + userSender + "' and id=" + Convert.ToString(id));
+                number = list.Count;
+                foreach (var entry in list[number - 1].Values)
+                    tempt = entry;
+
+                history.AppendText("Lukasz: " + tempt);
+                history.AppendText(Environment.NewLine);
             }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.manager.DB.Insert("chatlast", new string[] { "end", "userSender", "userReceiver" }, new string[] { Convert.ToString(id), "root", "root"  });
+            this.manager.DB.Insert("chatlast", new string[] { "end", "userSender", "userReceiver" }, new string[] { Convert.ToString(id), userSender, "Lukasz" });
             this.Close();
         }
 
