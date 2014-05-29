@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace StudentManager
 {
     public partial class Form3 : Form
@@ -20,6 +21,7 @@ namespace StudentManager
         public Form3(Manager manager)
         {
             InitializeComponent();
+            friend.Text = "Rozmowa z: Lukasz";
             this.manager = manager;
             userSender = this.manager.Session["first_name"];
             id = takeLast();
@@ -56,9 +58,27 @@ namespace StudentManager
             }
         }
 
+
+        public static void AppendText(RichTextBox box, string text, Color color, HorizontalAlignment alignment)
+            {
+                box.SelectionStart = box.TextLength;
+                box.SelectionLength = 0;
+
+                box.SelectionColor = color;
+                box.SelectionAlignment = alignment;
+                box.AppendText(text);
+                box.SelectionColor = box.ForeColor;
+            }
+        
+
+
+
+
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             string tempt="";
+            string data = "";
             int number = 0;
            
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
@@ -75,7 +95,15 @@ namespace StudentManager
                 foreach (var entry in list[number - 1].Values)
                     tempt = entry;
 
-                history.AppendText(userSender+": " + tempt);
+                list = this.manager.DB.Select("SELECT data FROM `chat` WHERE userSender='" + userSender + "' and userReceiver='Lukasz' and id=" + Convert.ToString(id));
+                number = list.Count;
+                foreach (var entry in list[number - 1].Values)
+                    data = entry;
+
+                AppendText(history, data, Color.Gray, HorizontalAlignment.Right);
+                history.AppendText(Environment.NewLine);
+                AppendText(history, userSender + ": ", Color.FromArgb(0x79c7fc), HorizontalAlignment.Left);
+                AppendText(history, tempt, Color.FromArgb(0x494c4f), HorizontalAlignment.Left);
                 history.AppendText(Environment.NewLine);
             }
 
@@ -91,7 +119,15 @@ namespace StudentManager
                 foreach (var entry in list[number - 1].Values)
                     tempt = entry;
 
-                history.AppendText("Lukasz: " + tempt);
+                list = this.manager.DB.Select("SELECT data FROM `chat` WHERE userSender='Lukasz' and userReceiver='" + userSender + "' and id=" + Convert.ToString(id));
+                number = list.Count;
+                foreach (var entry in list[number - 1].Values)
+                    data = entry;
+
+                AppendText(history, data, Color.Gray, HorizontalAlignment.Right);
+                history.AppendText(Environment.NewLine);
+                AppendText(history, "Lukasz: ", Color.FromArgb(0x0097fc), HorizontalAlignment.Left);
+                AppendText(history, tempt, Color.FromArgb(0x00000), HorizontalAlignment.Left);
                 history.AppendText(Environment.NewLine);
             }
         }

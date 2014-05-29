@@ -32,10 +32,11 @@
             this.logo = new System.Windows.Forms.Panel();
             this.messageContainer = new System.Windows.Forms.Panel();
             this.message = new System.Windows.Forms.TextBox();
-            this.history = new System.Windows.Forms.TextBox();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.friend = new System.Windows.Forms.Label();
+            this.history = new System.Windows.Forms.RichTextBox();
             this.messageContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,16 +67,6 @@
             this.message.TabIndex = 0;
             this.message.KeyUp += new System.Windows.Forms.KeyEventHandler(this.message_KeyUp);
             // 
-            // history
-            // 
-            this.history.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.history.Location = new System.Drawing.Point(15, 126);
-            this.history.Multiline = true;
-            this.history.Name = "history";
-            this.history.ReadOnly = true;
-            this.history.Size = new System.Drawing.Size(350, 182);
-            this.history.TabIndex = 12;
-            // 
             // minimizeButton
             // 
             this.minimizeButton.BackgroundImage = global::StudentManager.Properties.Resources.minimizeButton;
@@ -105,15 +96,37 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // friend
+            // 
+            this.friend.AutoSize = true;
+            this.friend.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.friend.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.friend.Location = new System.Drawing.Point(15, 95);
+            this.friend.Name = "friend";
+            this.friend.Size = new System.Drawing.Size(64, 26);
+            this.friend.TabIndex = 15;
+            this.friend.Text = "label1";
+            // 
+            // history
+            // 
+            this.history.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.history.Location = new System.Drawing.Point(15, 124);
+            this.history.Name = "history";
+            this.history.ReadOnly = true;
+            this.history.Size = new System.Drawing.Size(350, 200);
+            this.history.TabIndex = 16;
+            this.history.Text = "";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(380, 450);
+            this.Controls.Add(this.history);
+            this.Controls.Add(this.friend);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.minimizeButton);
-            this.Controls.Add(this.history);
             this.Controls.Add(this.messageContainer);
             this.Controls.Add(this.logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -131,9 +144,10 @@
         private System.Windows.Forms.Panel logo;
         private System.Windows.Forms.Panel messageContainer;
         private System.Windows.Forms.TextBox message;
-        private System.Windows.Forms.TextBox history;
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label friend;
+        private System.Windows.Forms.RichTextBox history;
     }
 }
