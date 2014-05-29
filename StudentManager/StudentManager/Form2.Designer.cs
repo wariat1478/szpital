@@ -31,13 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.friendsContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.select = new System.Windows.Forms.Panel();
             this.logout = new System.Windows.Forms.Button();
             this.setBusy = new System.Windows.Forms.Button();
             this.setAway = new System.Windows.Forms.Button();
             this.setActive = new System.Windows.Forms.Button();
-            this.friends = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.changeStatus = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.select.SuspendLayout();
-            this.friends.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusImage)).BeginInit();
             this.panel4.SuspendLayout();
@@ -73,14 +71,21 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.select);
-            this.panel2.Controls.Add(this.friends);
             this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.friendsContainer);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(356, 446);
             this.panel2.TabIndex = 0;
+            // 
+            // friendsContainer
+            // 
+            this.friendsContainer.Location = new System.Drawing.Point(0, 117);
+            this.friendsContainer.Name = "friendsContainer";
+            this.friendsContainer.Size = new System.Drawing.Size(356, 328);
+            this.friendsContainer.TabIndex = 5;
             // 
             // select
             // 
@@ -166,21 +171,6 @@
             this.setActive.Text = "Dostępny";
             this.setActive.UseVisualStyleBackColor = true;
             this.setActive.Click += new System.EventHandler(this.setActive_Click);
-            // 
-            // friends
-            // 
-            this.friends.Controls.Add(this.flowLayoutPanel1);
-            this.friends.Location = new System.Drawing.Point(0, 139);
-            this.friends.Name = "friends";
-            this.friends.Size = new System.Drawing.Size(356, 308);
-            this.friends.TabIndex = 5;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(79, 64);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -318,7 +308,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.select.ResumeLayout(false);
-            this.friends.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusImage)).EndInit();
@@ -339,8 +328,6 @@
         private System.Windows.Forms.Label name;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox avatar;
-        private System.Windows.Forms.Panel friends;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label status;
         private System.Windows.Forms.PictureBox statusImage;
         private System.Windows.Forms.Button changeStatus;
@@ -349,5 +336,6 @@
         private System.Windows.Forms.Button setAway;
         private System.Windows.Forms.Button setActive;
         private System.Windows.Forms.Button logout;
+        private System.Windows.Forms.FlowLayoutPanel friendsContainer;
     }
 }

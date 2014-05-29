@@ -41,13 +41,63 @@ namespace StudentManager
             List<Dictionary<string, string>> friends = new List<Dictionary<string, string>>();
             friends = this.manager.DB.Select("select * from friends f left join users u on f.friend=u.user_id where f.user=" + this.manager.Session["user_id"]);
 
-            Label firendName = new Label();
+            Panel friendPanel = new Panel();
+            Label friendName = new Label();
+            PictureBox friendStatusImage = new PictureBox();
+            Label friendStatus = new Label();
+
             for (int i = 0; i < friends.Count; i++)
             {
-                firendName = new Label();
-                firendName.Name = "friend" + friends[i]["friend_id"];
-                firendName.Text = friends[i]["first_name"] + " " + friends[i]["last_name"];
-                firendName.Parent = flowLayoutPanel1;
+                friendPanel = new Panel();
+                friendPanel.Name = "friendPanel" + friends[i]["friend_id"];
+                friendPanel.Parent = friendsContainer;
+                friendPanel.Width = friendsContainer.Width;
+                friendPanel.Height = 42;
+
+                friendName = new Label();
+                friendName.Name = "friendName" + friends[i]["friend_id"];
+                friendName.Text = friends[i]["first_name"] + " " + friends[i]["last_name"];
+                friendName.Parent = friendPanel;
+                friendName.Location = new Point(50, 10);
+                friendName.Font = new Font("Arial", 9.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238)));
+                friendName.ForeColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(143)))), ((int)(((byte)(220)))));
+                friendName.Height = 18;
+
+                friendStatusImage = new PictureBox();
+                friendStatusImage.Parent = friendPanel;
+                friendStatusImage.Location = new Point(55, 30);
+                friendStatusImage.Name = "friendStatusImage" + friends[i]["friend_id"];
+                friendStatusImage.Size = new Size(10, 10);
+
+                friendStatus = new Label();
+                friendStatus.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238)));
+                friendStatus.ForeColor = Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+                friendStatus.Location = new Point(70, 28);
+                friendStatus.Name = "friendStatus" + friends[i]["friend_id"];
+                friendStatus.Parent = friendPanel;
+
+                switch (friends[i]["status"])
+                {
+                    case "0":
+                        friendStatusImage.Image = StudentManager.Properties.Resources.inactive;
+                        friendStatus.Text = "Niedostępny";
+                        break;
+
+                    case "1":
+                        friendStatusImage.Image = StudentManager.Properties.Resources.active;
+                        friendStatus.Text = "Dostępny";
+                        break;
+
+                    case "2":
+                        friendStatusImage.Image = StudentManager.Properties.Resources.away;
+                        friendStatus.Text = "Nieobecny";
+                        break;
+
+                    case "3":
+                        friendStatusImage.Image = StudentManager.Properties.Resources.busy;
+                        friendStatus.Text = "Zajęty";
+                        break;
+                }
             }
         }
 
