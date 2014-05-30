@@ -48,6 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Form1.cs">
@@ -78,6 +90,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,6 +167,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\header.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxmize.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeActive.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxmizeActive.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizeActive.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\away2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busy2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\friends.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowActive.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\away3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busy3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inactive3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

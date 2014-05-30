@@ -15,8 +15,11 @@ namespace StudentManager
         {
             this.DB = new DB();
 
-            Form f1 = new Form1(this);
-            f1.Show();
+            Form f4 = new Form4(this);
+            f4.Show();
+
+            //Form f1 = new Form1(this);
+            //f1.Show();
         }
     }
 }
