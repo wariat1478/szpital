@@ -52,7 +52,32 @@ namespace StudentManager
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void closeButton_MouseEnter(object sender, EventArgs e)
+        {
+            this.closeButton.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.closeActive));
+        }
+
+        private void closeButton_MouseLeave(object sender, EventArgs e)
+        {
+            this.closeButton.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.close));
+        }
+
+        private void minimizeButton_MouseEnter(object sender, EventArgs e)
+        {
+            this.minimizeButton.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.minimizeActive));
+        }
+
+        private void minimizeButton_MouseLeave(object sender, EventArgs e)
+        {
+            this.minimizeButton.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.minimize));
+        }
+
         private void login_Click(object sender, EventArgs e)
+        {
+            _login();
+        }
+
+        private void _login()
         {
             if (this.manager.DB.Count("select count(*) FROM users where username='" + username.Text + "' AND password='" + CalculateSHA1(password.Text, Encoding.Unicode) + "'") == 1)
             {
@@ -63,10 +88,10 @@ namespace StudentManager
 
                 this.manager.Session = list[0];
 
-                Form f2 = new Form2(this.manager);
-                f2.WindowState = FormWindowState.Normal;
-                f2.BringToFront();
-                f2.Show();
+                Form f4 = new Form4(this.manager);
+                f4.WindowState = FormWindowState.Normal;
+                f4.BringToFront();
+                f4.Show();
 
                 this.Close();
             }
@@ -77,6 +102,52 @@ namespace StudentManager
             byte[] buffer = enc.GetBytes(text);
             SHA1CryptoServiceProvider cryptoTransformSHA1 = new SHA1CryptoServiceProvider();
             return BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
+        }
+
+        private void username_Enter(object sender, EventArgs e)
+        {
+            if (username.Text == "Nazwa użytkownika")
+            {
+                username.Text = "";
+                username.ForeColor = Color.White;
+            }
+        }
+
+        private void password_Enter(object sender, EventArgs e)
+        {
+            if (password.Text == "Hasło")
+            {
+                password.Text = "";
+                password.PasswordChar = (char) 7;
+                password.ForeColor = Color.White;
+            }
+        }
+
+        private void username_Leave(object sender, EventArgs e)
+        {
+            if (username.Text == "")
+            {
+                username.Text = "Nazwa użytkownika";
+                username.ForeColor = Color.FromArgb(140, 140, 140);
+            }
+        }
+
+        private void password_Leave(object sender, EventArgs e)
+        {
+            if (password.Text == "")
+            {
+                password.Text = "Hasło";
+                password.PasswordChar = (char) 0;
+                password.ForeColor = Color.FromArgb(140, 140, 140);
+            }
+        }
+
+        private void username_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                _login();
+            }
         }
     }
 }
