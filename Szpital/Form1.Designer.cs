@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.body = new System.Windows.Forms.Panel();
             this.login = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.MaskedTextBox();
@@ -170,7 +169,6 @@
             this.ClientSize = new System.Drawing.Size(380, 450);
             this.Controls.Add(this.body);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "Student Manager";
