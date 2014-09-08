@@ -32,6 +32,9 @@
             this.body = new System.Windows.Forms.Panel();
             this.line = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
+            this.end_button = new System.Windows.Forms.Button();
+            this.endbreak_button = new System.Windows.Forms.Button();
+            this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
             this.body.SuspendLayout();
             this.header.SuspendLayout();
@@ -70,6 +73,9 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.header.Controls.Add(this.end_button);
+            this.header.Controls.Add(this.endbreak_button);
+            this.header.Controls.Add(this.break_button);
             this.header.Controls.Add(this.controls);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
@@ -77,6 +83,38 @@
             this.header.Size = new System.Drawing.Size(798, 80);
             this.header.TabIndex = 0;
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
+            // end_button
+            // 
+            this.end_button.Location = new System.Drawing.Point(580, 32);
+            this.end_button.Name = "end_button";
+            this.end_button.Size = new System.Drawing.Size(96, 23);
+            this.end_button.TabIndex = 13;
+            this.end_button.Text = "Koniec";
+            this.end_button.UseVisualStyleBackColor = true;
+            this.end_button.Click += new System.EventHandler(this.end_button_Click);
+            // 
+            // endbreak_button
+            // 
+            this.endbreak_button.Location = new System.Drawing.Point(580, 3);
+            this.endbreak_button.Name = "endbreak_button";
+            this.endbreak_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.endbreak_button.Size = new System.Drawing.Size(96, 23);
+            this.endbreak_button.TabIndex = 12;
+            this.endbreak_button.Text = "Koniec przerwy";
+            this.endbreak_button.UseVisualStyleBackColor = true;
+            this.endbreak_button.Visible = false;
+            this.endbreak_button.Click += new System.EventHandler(this.endbreak_button_Click);
+            // 
+            // break_button
+            // 
+            this.break_button.Location = new System.Drawing.Point(580, 3);
+            this.break_button.Name = "break_button";
+            this.break_button.Size = new System.Drawing.Size(96, 23);
+            this.break_button.TabIndex = 11;
+            this.break_button.Text = "Przerwa";
+            this.break_button.UseVisualStyleBackColor = true;
+            this.break_button.Click += new System.EventHandler(this.break_button_Click);
             // 
             // controls
             // 
@@ -111,5 +149,8 @@
         private System.Windows.Forms.Panel line;
         private System.Windows.Forms.Panel header;
         private System.Windows.Forms.Panel controls;
+        private System.Windows.Forms.Button break_button;
+        private System.Windows.Forms.Button endbreak_button;
+        private System.Windows.Forms.Button end_button;
     }
 }
