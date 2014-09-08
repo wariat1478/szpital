@@ -29,7 +29,7 @@ namespace Szpital
             InitializeComponent();
         }
 
-        private void body_MouseDown(object sender, MouseEventArgs e)
+        private void header_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -40,19 +40,17 @@ namespace Szpital
 
         private void login_Click(object sender, EventArgs e)
         {
-            if (DB.Instance.Count("SELECT count(*) FROM konta where nazwa_uzytkownika='" + username.Text + "' AND haslo='" + CalculateSHA1(password.Text, Encoding.Unicode) + "'") == 1)
+            if (DB.Instance.Count("konta", new string[] {"nazwa_uzytkownika = '" + username.Text + "'", "haslo = '" + CalculateSHA1(password.Text, Encoding.Unicode) + "'"}) == 1)
             {
                 List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
                 list = DB.Instance.Select("SELECT * FROM konta WHERE nazwa_uzytkownika='" + username.Text + "'");
 
-                //this.manager.Session = list[0];
+                Form f2 = new Form2();
+                f2.WindowState = FormWindowState.Normal;
+                f2.BringToFront();
+                f2.Show();
 
-                //Form f4 = new Form4(this.manager);
-                //f4.WindowState = FormWindowState.Normal;
-                //f4.BringToFront();
-                //f4.Show();
-
-                //this.Close();
+                this.Close();
             }
             else
             {

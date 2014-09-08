@@ -60,7 +60,6 @@
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(378, 448);
             this.body.TabIndex = 9;
-            this.body.MouseDown += new System.Windows.Forms.MouseEventHandler(this.body_MouseDown);
             // 
             // login
             // 
@@ -152,6 +151,7 @@
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(378, 80);
             this.header.TabIndex = 0;
+            this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
             // controls
             // 
@@ -160,6 +160,7 @@
             this.controls.Name = "controls";
             this.controls.Size = new System.Drawing.Size(97, 80);
             this.controls.TabIndex = 0;
+            this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
             // Form1
             // 

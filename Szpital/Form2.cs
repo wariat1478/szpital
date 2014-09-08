@@ -14,7 +14,17 @@ namespace Szpital
     {
         public Form2()
         {
+            //this.CenterToScreen();
             InitializeComponent();
+        }
+
+        private void header_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

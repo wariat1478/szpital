@@ -72,6 +72,56 @@ namespace Szpital
             }
         }
 
+        public List<Dictionary<string, string>> Select(string query)
+        {
+            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Dictionary<string, string> row = new Dictionary<string, string>();
+                    for (int i = 0; i < dataReader.FieldCount; i++)
+                    {
+                        row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
+                    }
+                    list.Add(row);
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+
+                return list;
+            }
+
+            return list;
+        }
+
+        public int Count(string table, string[] conditions)
+        {
+            int count = 0;
+            if (this.OpenConnection() == true)
+            {
+                string where = conditions.Length > 0 ? "WHERE " + string.Join(" AND ", conditions): "";
+                string query = string.Format("SELECT count(*) FROM {0} {1}", table, where);
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    count = Convert.ToInt32(dataReader["count(*)"]);
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+            }
+
+            return count;
+        }
+
         public void Insert(string table, string[] fields, string[] values)
         {
             string query;
@@ -112,54 +162,6 @@ namespace Szpital
 
         public void Delete()
         {
-        }
-
-        public List<Dictionary<string, string>> Select(string query)
-        {
-            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    Dictionary<string, string> row = new Dictionary<string, string>();
-                    for (int i = 0; i < dataReader.FieldCount; i++)
-                    {
-                        row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
-                    }
-                    list.Add(row);
-                }
-
-                dataReader.Close();
-                this.CloseConnection();
-
-                return list;
-            }
-
-            return list;
-        }
-
-        public int Count(string query)
-        {
-            int count = 0;
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query.ToLower(), conn);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    count = Convert.ToInt32(dataReader["count(*)"]);
-                }
-
-                dataReader.Close();
-                this.CloseConnection();
-            }
-
-            return count;
         }
     }
 }
