@@ -30,14 +30,14 @@
         {
             this.footer = new System.Windows.Forms.Panel();
             this.body = new System.Windows.Forms.Panel();
+            this.patients_panel = new System.Windows.Forms.Panel();
             this.line = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
+            this.patients_button = new System.Windows.Forms.Button();
             this.end_button = new System.Windows.Forms.Button();
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
-            this.patients_panel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.body.SuspendLayout();
             this.header.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,15 @@
             this.body.Size = new System.Drawing.Size(798, 598);
             this.body.TabIndex = 10;
             // 
+            // patients_panel
+            // 
+            this.patients_panel.AutoSize = true;
+            this.patients_panel.BackColor = System.Drawing.Color.Transparent;
+            this.patients_panel.Location = new System.Drawing.Point(22, 97);
+            this.patients_panel.Name = "patients_panel";
+            this.patients_panel.Size = new System.Drawing.Size(174, 401);
+            this.patients_panel.TabIndex = 11;
+            // 
             // line
             // 
             this.line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -76,7 +85,7 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.header.Controls.Add(this.button1);
+            this.header.Controls.Add(this.patients_button);
             this.header.Controls.Add(this.end_button);
             this.header.Controls.Add(this.endbreak_button);
             this.header.Controls.Add(this.break_button);
@@ -87,6 +96,16 @@
             this.header.Size = new System.Drawing.Size(798, 80);
             this.header.TabIndex = 0;
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
+            // patients_button
+            // 
+            this.patients_button.Location = new System.Drawing.Point(400, 3);
+            this.patients_button.Name = "patients_button";
+            this.patients_button.Size = new System.Drawing.Size(106, 23);
+            this.patients_button.TabIndex = 0;
+            this.patients_button.Text = "Pokaż pacjentów";
+            this.patients_button.UseVisualStyleBackColor = true;
+            this.patients_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // end_button
             // 
@@ -129,24 +148,6 @@
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
-            // patients_panel
-            // 
-            this.patients_panel.BackColor = System.Drawing.Color.Silver;
-            this.patients_panel.Location = new System.Drawing.Point(69, 122);
-            this.patients_panel.Name = "patients_panel";
-            this.patients_panel.Size = new System.Drawing.Size(683, 432);
-            this.patients_panel.TabIndex = 11;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(422, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +160,7 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "Form2";
             this.body.ResumeLayout(false);
+            this.body.PerformLayout();
             this.header.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -175,6 +177,6 @@
         private System.Windows.Forms.Button endbreak_button;
         private System.Windows.Forms.Button end_button;
         private System.Windows.Forms.Panel patients_panel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button patients_button;
     }
 }

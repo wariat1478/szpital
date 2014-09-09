@@ -73,36 +73,31 @@ namespace Szpital
         private void button1_Click(object sender, EventArgs e)
         {
             showPatients();
-
-            /*TextBox textBox1 = new TextBox();
-            textBox1.Location = new Point(69, 120);
-            textBox1.Text = "I am a TextBox5";
-            textBox1.Size = new Size(200, 30);
-
-            CheckBox checkBox1 = new CheckBox();
-            checkBox1.Location = new Point(69, 120);
-            checkBox1.Text = "Check Me";
-            checkBox1.Size = new Size(200, 30);
-
-            patients_panel.Controls.Add(textBox1);
-            patients_panel.Controls.Add(checkBox1);
-
-            Controls.Add(patients_panel);*/
         }
 
         private void showPatients()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Panel panel = new Panel();
-                panel.Parent = patients_panel;
-                panel.Dock = DockStyle.Top;
+           List<Dictionary<string, string>> list = DB.Instance.getPatients(DB.Instance.user["lekarz_id"]);
+           string imie, nazwisko;
+           for (int i = 0; i < list.Count; i++)
+           {
+             imie = list[i]["imie"];
+             nazwisko = list[i]["nazwisko"];
+             
+             Panel panel = new Panel();
+             panel.Parent = patients_panel;
+             panel.Dock = DockStyle.Top;
+             panel.Height = 25;
 
-                TextBox textBox1 = new TextBox();
-                textBox1.Parent = panel;
-                textBox1.Text = "Dupa";
-                textBox1.Dock = DockStyle.Top;
-            }
+             Button button1 = new Button();
+             TextBox textBox1 = new TextBox();
+             button1.Parent = panel;
+             button1.Text = imie+" "+nazwisko;
+             button1.Dock = DockStyle.Left;
+             button1.Size = new System.Drawing.Size(100, 20); 
+           }
+          
+           
         }
     }
 }
