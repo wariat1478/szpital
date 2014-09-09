@@ -38,8 +38,11 @@
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
+            this.patientDetails = new System.Windows.Forms.Panel();
+            this.patientName = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
             this.header.SuspendLayout();
+            this.patientDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // footer
@@ -54,6 +57,7 @@
             // body
             // 
             this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.body.Controls.Add(this.patientDetails);
             this.body.Controls.Add(this.patients_panel);
             this.body.Controls.Add(this.line);
             this.body.Controls.Add(this.footer);
@@ -66,11 +70,12 @@
             // 
             // patients_panel
             // 
-            this.patients_panel.AutoSize = true;
             this.patients_panel.BackColor = System.Drawing.Color.Transparent;
-            this.patients_panel.Location = new System.Drawing.Point(22, 97);
+            this.patients_panel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.patients_panel.Location = new System.Drawing.Point(0, 82);
             this.patients_panel.Name = "patients_panel";
-            this.patients_panel.Size = new System.Drawing.Size(174, 401);
+            this.patients_panel.Padding = new System.Windows.Forms.Padding(20);
+            this.patients_panel.Size = new System.Drawing.Size(200, 492);
             this.patients_panel.TabIndex = 11;
             // 
             // line
@@ -148,6 +153,25 @@
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
+            // patientDetails
+            // 
+            this.patientDetails.Controls.Add(this.patientName);
+            this.patientDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientDetails.Location = new System.Drawing.Point(200, 82);
+            this.patientDetails.Name = "patientDetails";
+            this.patientDetails.Size = new System.Drawing.Size(598, 150);
+            this.patientDetails.TabIndex = 12;
+            // 
+            // patientName
+            // 
+            this.patientName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.patientName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.patientName.Location = new System.Drawing.Point(20, 20);
+            this.patientName.Name = "patientName";
+            this.patientName.Size = new System.Drawing.Size(253, 19);
+            this.patientName.TabIndex = 0;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,8 +184,9 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "Form2";
             this.body.ResumeLayout(false);
-            this.body.PerformLayout();
             this.header.ResumeLayout(false);
+            this.patientDetails.ResumeLayout(false);
+            this.patientDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +203,7 @@
         private System.Windows.Forms.Button end_button;
         private System.Windows.Forms.Panel patients_panel;
         private System.Windows.Forms.Button patients_button;
+        private System.Windows.Forms.Panel patientDetails;
+        private System.Windows.Forms.TextBox patientName;
     }
 }

@@ -65,9 +65,6 @@ namespace Szpital
             {
                 //powrot
             }
-
-         
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -77,27 +74,30 @@ namespace Szpital
 
         private void showPatients()
         {
-           List<Dictionary<string, string>> list = DB.Instance.getPatients(DB.Instance.user["lekarz_id"]);
-           string imie, nazwisko;
-           for (int i = 0; i < list.Count; i++)
-           {
-             imie = list[i]["imie"];
-             nazwisko = list[i]["nazwisko"];
-             
-             Panel panel = new Panel();
-             panel.Parent = patients_panel;
-             panel.Dock = DockStyle.Top;
-             panel.Height = 25;
+            patients_panel.Controls.Clear();
+            List<Dictionary<string, string>> list = DB.Instance.getPatients(DB.Instance.user["lekarz_id"]);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Button patient = new Button();
+                patient.Parent = patients_panel;
+                patient.Text = list[i]["imie"] + " " + list[i]["nazwisko"];
+                patient.Dock = DockStyle.Top;
+                patient.Size = new System.Drawing.Size(100, 40);
+                patient.Tag  = list[i]["id"];
 
-             Button button1 = new Button();
-             TextBox textBox1 = new TextBox();
-             button1.Parent = panel;
-             button1.Text = imie+" "+nazwisko;
-             button1.Dock = DockStyle.Left;
-             button1.Size = new System.Drawing.Size(100, 20); 
-           }
-          
-           
+                patient.Click += (s, e) =>
+                {
+                    Button button = (Button)s;
+                    showPatient((string) button.Tag);
+                };
+            }
+        }
+
+        private void showPatient(string patientId)
+        {
+            Dictionary<string, string> patient = DB.Instance.getPatient(patientId);
+
+            patientName.Text = patient["imie"] + " " + patient["nazwisko"];
         }
     }
 }

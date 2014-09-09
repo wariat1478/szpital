@@ -104,7 +104,7 @@ namespace Szpital
         {
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
 
-            string query = string.Format("SELECT p.* FROM lekarze_pacjenci lp left join pacjenci p on (lp.pacjent_id=p.id) WHERE lp.lekarz_id={0}", doctorId);
+            string query = string.Format("SELECT p.* FROM lekarze_pacjenci lp LEFT JOIN pacjenci p ON (lp.pacjent_id=p.id) WHERE lp.lekarz_id={0}", doctorId);
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -128,7 +128,7 @@ namespace Szpital
         {
             Dictionary<string, string> row = new Dictionary<string, string>();
 
-            string query = string.Format("SELECT * FROM pacjenci WHERE pacjent_id={0}", patientId);
+            string query = string.Format("SELECT p.*, k.sala, k.rozpoznanie, k.data_przyjecia, k.data_wypisu FROM pacjenci p LEFT JOIN karty k ON (p.id=k.pacjent_id) WHERE p.id={0} order by data_przyjecia desc", patientId);
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -137,7 +137,7 @@ namespace Szpital
             {
                 for (int i = 0; i < dataReader.FieldCount; i++)
                 {
-                    row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
+                    row.Add(dataReader.GetName(i).ToLower(), dataReader.IsDBNull(i) ? "" : dataReader.GetString(i));
                 }
             }
 
