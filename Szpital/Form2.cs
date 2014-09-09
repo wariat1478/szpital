@@ -96,8 +96,9 @@ namespace Szpital
         private void showPatient(string patientId)
         {
             Dictionary<string, string> patient = DB.Instance.getPatient(patientId);
-
-            patientName.Text = patient["imie"] + " " + patient["nazwisko"];
+            patientName.Text = patient["imie"] + " " + patient["nazwisko"] + Environment.NewLine + "Nr Ubezpieczenia: " + patient["nr_ubezpieczenia"] + Environment.NewLine + "Telefon kontaktowy: "+ patient["telefon_kontaktowy"] +  Environment.NewLine + "Pesel: " +patient["pesel"];
+            patientName.Multiline = true;
+            patientName.Height = 100;
         }
     }
 }
