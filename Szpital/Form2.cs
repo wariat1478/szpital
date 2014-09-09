@@ -29,8 +29,6 @@ namespace Szpital
 
         }
 
-       
-
         private void header_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -45,7 +43,7 @@ namespace Szpital
             break_button.Visible = false;
             DateTime Now = DateTime.Now;
             string NowMySql = Now.ToString("yyyy-MM-dd HH:mm:ss");
-            DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "2" });
+            //DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "2" });
             endbreak_button.Visible = true;
         }
 
@@ -54,7 +52,7 @@ namespace Szpital
             endbreak_button.Visible = false;
             DateTime Now = DateTime.Now;
             string NowMySql = Now.ToString("yyyy-MM-dd HH:mm:ss");
-            DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "1" });
+            //DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "1" });
             break_button.Visible = true;
         }
 
@@ -67,7 +65,7 @@ namespace Szpital
             {
                 DateTime Now = DateTime.Now;
                 string NowMySql = Now.ToString("yyyy-MM-dd HH:mm:ss");
-                DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "0" });
+                //DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "0" });
                 Application.Exit();
                 //wylogowanie
             }

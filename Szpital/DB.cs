@@ -36,6 +36,8 @@ namespace Szpital
         private string username = "root";
         private string password = "";
 
+        public Dictionary<string, string> user = new Dictionary<string,string>();
+
         private void Initialize()
         {
             string connString = "server=" + this.host + ";"
@@ -44,35 +46,62 @@ namespace Szpital
                               + "password=" + this.password + ";";
 
             conn = new MySqlConnection(connString);
+            conn.Open();
         }
 
-        private bool OpenConnection()
+        public bool checkUser(string username, string password)
         {
-            try
+            string query = string.Format("SELECT count(*) FROM konta WHERE nazwa_uzytkownika='{0}' AND haslo='{1}'", username, password);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
             {
-                conn.Open();
+                if (dataReader.GetInt32(0) == 1)
+                {
+                    dataReader.Close();
+                    return true;
+                }
+            }
+
+            dataReader.Close();
+            return false;
+        }
+
+        public void setUser(string username)
+        {
+            string query = string.Format("SELECT * FROM konta WHERE nazwa_uzytkownika='{0}'", username);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    user.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
+                }
+            }
+
+            dataReader.Close();
+        }
+
+        public bool addEvent(string accountId, string type)
+        {
+            string query = string.Format("INSERT INTO historia (konto_id, kiedy, typ) VALUES ({0}, NOW(), {1})", accountId, type);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            if (cmd.ExecuteNonQuery() == 1)
+            {
                 return true;
             }
-            catch (MySqlException e)
-            {
-                return false;
-            }
+
+            return false;
         }
 
-        private bool CloseConnection()
-        {
-            try
-            {
-                conn.Close();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                return false;
-            }
-        }
 
-        public List<Dictionary<string, string>> Select(string query)
+        /*public List<Dictionary<string, string>> Select(string query)
         {
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
 
@@ -122,12 +151,12 @@ namespace Szpital
             return count;
         }
 
-        public void Insert(string table, string[] fields, string[] values)
+        public bool Insert(string table, string[] fields, string[] values)
         {
             string query;
 
             if (fields.Length != values.Length)
-                return;
+                return false;
 
             for (int i = 0; i < fields.Length; i++)
             {
@@ -146,22 +175,45 @@ namespace Szpital
                 cmd.ExecuteNonQuery();
 
                 this.CloseConnection();
+
+                return true;
             }
+
+            return false;
         }
 
-        public void Update(string query)
+        public bool Update(string table, string[] fields, string[] conditions)
         {
             if (this.OpenConnection() == true)
             {
+                string where = conditions.Length > 0 ? "WHERE " + string.Join(" AND ", conditions) : "";
+                string query = string.Format("UPATE {0} SET {1} {2}", table, String.Join(", ", fields), where);
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
 
                 this.CloseConnection();
+
+                return true;
             }
+
+            return false;
         }
 
-        public void Delete()
+        public bool Delete(string table, string[] conditions)
         {
-        }
+            if (this.OpenConnection() == true)
+            {
+                string where = conditions.Length > 0 ? "WHERE " + string.Join(" AND ", conditions) : "";
+                string query = string.Format("DELETE FROM {0} {1}", table, where);
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                this.CloseConnection();
+
+                return true;
+            }
+
+            return false;
+        }*/
     }
 }

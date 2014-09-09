@@ -38,12 +38,22 @@ namespace Szpital
             }
         }
 
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void login_Click(object sender, EventArgs e)
         {
-            if (DB.Instance.Count("konta", new string[] {"nazwa_uzytkownika = '" + username.Text + "'", "haslo = '" + CalculateSHA1(password.Text, Encoding.Unicode) + "'"}) == 1)
+            if (DB.Instance.checkUser(username.Text, CalculateSHA1(password.Text, Encoding.Unicode)))
             {
-                List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
-                list = DB.Instance.Select("SELECT * FROM konta WHERE nazwa_uzytkownika='" + username.Text + "'");
+                DB.Instance.setUser(username.Text);
+                DB.Instance.addEvent(DB.Instance.user["id"], "1");
 
                 Form f2 = new Form2();
                 f2.WindowState = FormWindowState.Normal;

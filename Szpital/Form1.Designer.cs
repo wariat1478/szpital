@@ -39,10 +39,13 @@
             this.footer = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
             this.controls = new System.Windows.Forms.Panel();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.body.SuspendLayout();
             this.message.SuspendLayout();
             this.messageBody.SuspendLayout();
             this.header.SuspendLayout();
+            this.controls.SuspendLayout();
             this.SuspendLayout();
             // 
             // body
@@ -155,12 +158,38 @@
             // 
             // controls
             // 
+            this.controls.Controls.Add(this.minimizeButton);
+            this.controls.Controls.Add(this.closeButton);
             this.controls.Dock = System.Windows.Forms.DockStyle.Right;
             this.controls.Location = new System.Drawing.Point(281, 0);
             this.controls.Name = "controls";
             this.controls.Size = new System.Drawing.Size(97, 80);
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackgroundImage = global::Szpital.Properties.Resources.minimizeButton;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Location = new System.Drawing.Point(59, 10);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(9, 9);
+            this.minimizeButton.TabIndex = 1;
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackgroundImage = global::Szpital.Properties.Resources.closeButton;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Location = new System.Drawing.Point(78, 10);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(9, 9);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // Form1
             // 
@@ -179,6 +208,7 @@
             this.messageBody.ResumeLayout(false);
             this.messageBody.PerformLayout();
             this.header.ResumeLayout(false);
+            this.controls.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -196,6 +226,8 @@
         private System.Windows.Forms.MaskedTextBox password;
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Button login;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button minimizeButton;
     }
 }
 
