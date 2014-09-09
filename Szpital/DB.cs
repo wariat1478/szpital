@@ -100,6 +100,28 @@ namespace Szpital
             return false;
         }
 
+        public List<Dictionary<string, string>> getPatients(string doctorId)
+        {
+            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+
+            string query = string.Format("SELECT p.* FROM lekarze_pacjenci lp left join pacjenci p on (lp.pacjent_id=p.id) WHERE lp.lekarz_id={0}", doctorId);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Dictionary<string, string> row = new Dictionary<string, string>();
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
+                }
+                list.Add(row);
+            }
+
+            return list;
+        }
+
 
         /*public List<Dictionary<string, string>> Select(string query)
         {

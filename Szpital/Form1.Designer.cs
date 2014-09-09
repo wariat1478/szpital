@@ -41,11 +41,14 @@
             this.controls = new System.Windows.Forms.Panel();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
             this.message.SuspendLayout();
             this.messageBody.SuspendLayout();
             this.header.SuspendLayout();
             this.controls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // body
@@ -66,9 +69,10 @@
             // 
             // login
             // 
-            this.login.Location = new System.Drawing.Point(66, 267);
+            this.login.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.login.Location = new System.Drawing.Point(21, 257);
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(75, 23);
+            this.login.Size = new System.Drawing.Size(336, 37);
             this.login.TabIndex = 6;
             this.login.Text = "zaloguj";
             this.login.UseVisualStyleBackColor = true;
@@ -76,17 +80,19 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(66, 231);
+            this.password.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.password.Location = new System.Drawing.Point(20, 225);
             this.password.Name = "password";
             this.password.PasswordChar = '•';
-            this.password.Size = new System.Drawing.Size(158, 20);
+            this.password.Size = new System.Drawing.Size(338, 22);
             this.password.TabIndex = 5;
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(66, 196);
+            this.username.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.username.Location = new System.Drawing.Point(20, 190);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(158, 20);
+            this.username.Size = new System.Drawing.Size(338, 22);
             this.username.TabIndex = 4;
             // 
             // message
@@ -148,6 +154,8 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.header.Controls.Add(this.textBox1);
+            this.header.Controls.Add(this.pictureBox1);
             this.header.Controls.Add(this.controls);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
@@ -191,6 +199,27 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.textBox1.Location = new System.Drawing.Point(81, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "Logowanie";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,7 +237,9 @@
             this.messageBody.ResumeLayout(false);
             this.messageBody.PerformLayout();
             this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             this.controls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,6 +259,8 @@
         private System.Windows.Forms.Button login;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

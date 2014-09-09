@@ -55,6 +55,8 @@ namespace Szpital
                 DB.Instance.setUser(username.Text);
                 DB.Instance.addEvent(DB.Instance.user["id"], "1");
 
+                List<Dictionary<string, string>> list = DB.Instance.getPatients(DB.Instance.user["lekarz_id"]);
+
                 Form f2 = new Form2();
                 f2.WindowState = FormWindowState.Normal;
                 f2.BringToFront();
