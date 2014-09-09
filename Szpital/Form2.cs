@@ -26,7 +26,6 @@ namespace Szpital
         {
             //this.CenterToScreen();
             InitializeComponent();
-
         }
 
         private void header_MouseDown(object sender, MouseEventArgs e)
@@ -73,7 +72,9 @@ namespace Szpital
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TextBox textBox1 = new TextBox();
+            showPatients();
+
+            /*TextBox textBox1 = new TextBox();
             textBox1.Location = new Point(69, 120);
             textBox1.Text = "I am a TextBox5";
             textBox1.Size = new Size(200, 30);
@@ -86,7 +87,22 @@ namespace Szpital
             patients_panel.Controls.Add(textBox1);
             patients_panel.Controls.Add(checkBox1);
 
-            Controls.Add(patients_panel);
+            Controls.Add(patients_panel);*/
+        }
+
+        private void showPatients()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Panel panel = new Panel();
+                panel.Parent = patients_panel;
+                panel.Dock = DockStyle.Top;
+
+                TextBox textBox1 = new TextBox();
+                textBox1.Parent = panel;
+                textBox1.Text = "Dupa";
+                textBox1.Dock = DockStyle.Top;
+            }
         }
     }
 }
