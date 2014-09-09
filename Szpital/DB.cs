@@ -119,7 +119,31 @@ namespace Szpital
                 list.Add(row);
             }
 
+            dataReader.Close();
+
             return list;
+        }
+
+        public Dictionary<string, string> getPatient(string patientId)
+        {
+            Dictionary<string, string> row = new Dictionary<string, string>();
+
+            string query = string.Format("SELECT * FROM pacjenci WHERE pacjent_id={0}", patientId);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
+                }
+            }
+
+            dataReader.Close();
+
+            return row;
         }
 
 
