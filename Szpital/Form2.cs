@@ -41,18 +41,14 @@ namespace Szpital
         private void break_button_Click(object sender, EventArgs e)
         {
             break_button.Visible = false;
-            DateTime Now = DateTime.Now;
-            string NowMySql = Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "2" });
+            DB.Instance.addEvent(DB.Instance.user["id"], "2");
             endbreak_button.Visible = true;
         }
 
         private void endbreak_button_Click(object sender, EventArgs e)
         {
             endbreak_button.Visible = false;
-            DateTime Now = DateTime.Now;
-            string NowMySql = Now.ToString("yyyy-MM-dd HH:mm:ss");
-            //DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "1" });
+            DB.Instance.addEvent(DB.Instance.user["id"], "3");
             break_button.Visible = true;
         }
 
@@ -63,16 +59,34 @@ namespace Szpital
                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (wybor == DialogResult.Yes)
             {
-                DateTime Now = DateTime.Now;
-                string NowMySql = Now.ToString("yyyy-MM-dd HH:mm:ss");
-                //DB.Instance.Insert("historia", new string[] { "konto_id", "kiedy", "typ" }, new string[] { "1", NowMySql, "0" });
+                DB.Instance.addEvent(DB.Instance.user["id"], "4");
                 Application.Exit();
-                //wylogowanie
             }
             else
             {
                 //powrot
             }
+
+         
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TextBox textBox1 = new TextBox();
+            textBox1.Location = new Point(69, 120);
+            textBox1.Text = "I am a TextBox5";
+            textBox1.Size = new Size(200, 30);
+
+            CheckBox checkBox1 = new CheckBox();
+            checkBox1.Location = new Point(69, 120);
+            checkBox1.Text = "Check Me";
+            checkBox1.Size = new Size(200, 30);
+
+            patients_panel.Controls.Add(textBox1);
+            patients_panel.Controls.Add(checkBox1);
+
+            Controls.Add(patients_panel);
         }
     }
 }
