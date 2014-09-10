@@ -131,7 +131,50 @@ namespace Szpital
 
         private void showCardForm(string patientId)
         {
+            editCardForm.Visible = true;
             Dictionary<string, string> card = DB.Instance.getCard(patientId);
+
+            TextBox data_wypisu = new TextBox();
+            data_wypisu.Parent = editCardForm;
+            data_wypisu.Dock = DockStyle.Top;
+            TextBox data_przyjecia = new TextBox();
+            data_przyjecia.Parent = editCardForm;
+            data_przyjecia.Dock = DockStyle.Top;
+            TextBox rozpoznanie = new TextBox();
+            rozpoznanie.Parent = editCardForm;
+            rozpoznanie.Dock = DockStyle.Top;
+            TextBox sala = new TextBox();
+            sala.Parent = editCardForm;
+            sala.Dock = DockStyle.Top;
+            Label name = new Label();
+            name.Parent = editCardForm;
+            name.Dock = DockStyle.Top;
+            Label pola = new Label();
+            pola.Parent = editCardForm;
+            pola.Dock = DockStyle.Left;
+
+            pola.Font = new Font("Times New Roma Bold", 9);
+            pola.Text = Environment.NewLine + Environment.NewLine + "Sala: " + Environment.NewLine +  "Rozpozanie: " + Environment.NewLine + "Data przyjęcia: " + Environment.NewLine +"Data wypisu: ";
+
+            name.Text = "Edycja karty pacjenta";
+            sala.Text = card["sala"];
+            rozpoznanie.Text = card["rozpoznanie"];
+            data_przyjecia.Text = card["data_przyjecia"];
+            data_wypisu.Text = card["data_wypisu"];
+
+            Button save = new Button();
+            save.Parent = editCardForm;
+            save.Dock = DockStyle.Bottom;
+            save.Size = new System.Drawing.Size(100, 50);
+            save.Text = "Zapisz";
+
+            save.Click += (s, e) =>
+            {
+                Button button = (Button)s;
+                editCardForm.Visible = false;
+                editCardForm.Controls.Clear();
+            };
+
         }
     }
 }
