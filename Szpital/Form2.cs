@@ -26,7 +26,9 @@ namespace Szpital
         {
             //this.CenterToScreen();
             InitializeComponent();
+            
         }
+        string id = "1";
 
         private void header_MouseDown(object sender, MouseEventArgs e)
         {
@@ -89,6 +91,7 @@ namespace Szpital
                 {
                     Button button = (Button)s;
                     showPatient((string) button.Tag);
+                    id = (string)button.Tag;
                 };
             }
         }
@@ -104,6 +107,24 @@ namespace Szpital
             patientName.Width = 250;
             patientCard.Height = 150;
             patientCard.Width = 300;
+        }
+
+        private void patientCard_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult wybor = new DialogResult();
+            wybor = MessageBox.Show("Czy chcesz edytować dane?", "Edycja", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (wybor == DialogResult.Yes)
+            {
+                Form f3 = new Form3(id);
+                f3.WindowState = FormWindowState.Normal;
+                f3.BringToFront();
+                f3.Show();
+            }
+            else
+            {
+                
+            }
         }
     }
 }

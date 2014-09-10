@@ -31,6 +31,7 @@
             this.footer = new System.Windows.Forms.Panel();
             this.body = new System.Windows.Forms.Panel();
             this.patientDetails = new System.Windows.Forms.Panel();
+            this.patientCard = new System.Windows.Forms.TextBox();
             this.patientName = new System.Windows.Forms.TextBox();
             this.patients_panel = new System.Windows.Forms.Panel();
             this.line = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
-            this.patientCard = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
             this.patientDetails.SuspendLayout();
             this.header.SuspendLayout();
@@ -79,6 +79,18 @@
             this.patientDetails.Size = new System.Drawing.Size(598, 218);
             this.patientDetails.TabIndex = 12;
             // 
+            // patientCard
+            // 
+            this.patientCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.patientCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientCard.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.patientCard.Location = new System.Drawing.Point(300, 20);
+            this.patientCard.Name = "patientCard";
+            this.patientCard.ReadOnly = true;
+            this.patientCard.Size = new System.Drawing.Size(253, 19);
+            this.patientCard.TabIndex = 1;
+            this.patientCard.DoubleClick += new System.EventHandler(this.patientCard_DoubleClick);
+            // 
             // patientName
             // 
             this.patientName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
@@ -86,6 +98,7 @@
             this.patientName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.patientName.Location = new System.Drawing.Point(20, 20);
             this.patientName.Name = "patientName";
+            this.patientName.ReadOnly = true;
             this.patientName.Size = new System.Drawing.Size(253, 19);
             this.patientName.TabIndex = 0;
             // 
@@ -173,16 +186,6 @@
             this.controls.Size = new System.Drawing.Size(97, 80);
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
-            // 
-            // patientCard
-            // 
-            this.patientCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.patientCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.patientCard.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.patientCard.Location = new System.Drawing.Point(300, 20);
-            this.patientCard.Name = "patientCard";
-            this.patientCard.Size = new System.Drawing.Size(253, 19);
-            this.patientCard.TabIndex = 1;
             // 
             // Form2
             // 
