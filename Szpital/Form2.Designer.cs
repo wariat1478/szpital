@@ -40,6 +40,7 @@
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
+            this.patientCard = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
             this.patientDetails.SuspendLayout();
             this.header.SuspendLayout();
@@ -70,11 +71,12 @@
             // 
             // patientDetails
             // 
+            this.patientDetails.Controls.Add(this.patientCard);
             this.patientDetails.Controls.Add(this.patientName);
             this.patientDetails.Dock = System.Windows.Forms.DockStyle.Top;
             this.patientDetails.Location = new System.Drawing.Point(200, 82);
             this.patientDetails.Name = "patientDetails";
-            this.patientDetails.Size = new System.Drawing.Size(598, 492);
+            this.patientDetails.Size = new System.Drawing.Size(598, 218);
             this.patientDetails.TabIndex = 12;
             // 
             // patientName
@@ -172,6 +174,16 @@
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
+            // patientCard
+            // 
+            this.patientCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.patientCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientCard.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.patientCard.Location = new System.Drawing.Point(300, 20);
+            this.patientCard.Name = "patientCard";
+            this.patientCard.Size = new System.Drawing.Size(253, 19);
+            this.patientCard.TabIndex = 1;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.Button patients_button;
         private System.Windows.Forms.Panel patientDetails;
         private System.Windows.Forms.TextBox patientName;
+        private System.Windows.Forms.TextBox patientCard;
     }
 }

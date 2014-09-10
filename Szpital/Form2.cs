@@ -97,10 +97,13 @@ namespace Szpital
         {
             Dictionary<string, string> patient = DB.Instance.getPatient(patientId);
             patientName.Text = "Dane pacjenta: " + Environment.NewLine + Environment.NewLine + patient["imie"] + " " + patient["nazwisko"] + Environment.NewLine + "Nr Ubezpieczenia: " + patient["nr_ubezpieczenia"] + Environment.NewLine + "Telefon kontaktowy: " + patient["telefon_kontaktowy"] + Environment.NewLine + "Pesel: " + patient["pesel"];
-            patientName.Text = patientName.Text + Environment.NewLine + Environment.NewLine + "Karta pacjenta: " + Environment.NewLine + Environment.NewLine + "Sala: " + patient["sala"] + Environment.NewLine + "Rozpoznanie: " + patient["rozpoznanie"] + Environment.NewLine + "Data przyjęcia: " + patient["data_przyjecia"] + Environment.NewLine + "Data wypisu: " + patient["data_wypisu"];
+            patientCard.Text = "Karta pacjenta: " + Environment.NewLine + Environment.NewLine + "Sala: " + patient["sala"] + Environment.NewLine + "Rozpoznanie: " + patient["rozpoznanie"] + Environment.NewLine + "Data przyjęcia: " + patient["data_przyjecia"] + Environment.NewLine + "Data wypisu: " + patient["data_wypisu"];
             patientName.Multiline = true;
-            patientName.Height = 600;
-            patientName.Width = 400;
+            patientCard.Multiline = true;
+            patientName.Height = 150;
+            patientName.Width = 250;
+            patientCard.Height = 150;
+            patientCard.Width = 300;
         }
     }
 }
