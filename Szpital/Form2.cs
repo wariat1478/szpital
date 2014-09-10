@@ -91,7 +91,6 @@ namespace Szpital
                 {
                     Button button = (Button)s;
                     showPatient((string) button.Tag);
-                    id = (string)button.Tag;
                 };
             }
         }
@@ -101,12 +100,9 @@ namespace Szpital
             Dictionary<string, string> patient = DB.Instance.getPatient(patientId);
             patientName.Text = "Dane pacjenta: " + Environment.NewLine + Environment.NewLine + patient["imie"] + " " + patient["nazwisko"] + Environment.NewLine + "Nr Ubezpieczenia: " + patient["nr_ubezpieczenia"] + Environment.NewLine + "Telefon kontaktowy: " + patient["telefon_kontaktowy"] + Environment.NewLine + "Pesel: " + patient["pesel"];
             patientCard.Text = "Karta pacjenta: " + Environment.NewLine + Environment.NewLine + "Sala: " + patient["sala"] + Environment.NewLine + "Rozpoznanie: " + patient["rozpoznanie"] + Environment.NewLine + "Data przyjęcia: " + patient["data_przyjecia"] + Environment.NewLine + "Data wypisu: " + patient["data_wypisu"];
-            patientName.Multiline = true;
-            patientCard.Multiline = true;
-            patientName.Height = 150;
-            patientName.Width = 250;
-            patientCard.Height = 150;
-            patientCard.Width = 300;
+
+            editCard.Tag = patient["id"];
+            editCard.Visible = true;
         }
 
         private void patientCard_DoubleClick(object sender, EventArgs e)
@@ -116,15 +112,26 @@ namespace Szpital
                 MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (wybor == DialogResult.Yes)
             {
-                Form f3 = new Form3(id);
-                f3.WindowState = FormWindowState.Normal;
-                f3.BringToFront();
-                f3.Show();
+                //Form f3 = new Form3(id);
+                //f3.WindowState = FormWindowState.Normal;
+                //f3.BringToFront();
+                //f3.Show();
             }
             else
             {
                 
             }
+        }
+
+        private void editCard_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            showCardForm((string)button.Tag);
+        }
+
+        private void showCardForm(string patientId)
+        {
+            
         }
     }
 }

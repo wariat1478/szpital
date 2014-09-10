@@ -41,6 +41,8 @@
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
+            this.editCard = new System.Windows.Forms.Button();
+            this.editCardForm = new System.Windows.Forms.Panel();
             this.body.SuspendLayout();
             this.patientDetails.SuspendLayout();
             this.header.SuspendLayout();
@@ -58,6 +60,7 @@
             // body
             // 
             this.body.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.body.Controls.Add(this.editCardForm);
             this.body.Controls.Add(this.patientDetails);
             this.body.Controls.Add(this.patients_panel);
             this.body.Controls.Add(this.line);
@@ -71,6 +74,7 @@
             // 
             // patientDetails
             // 
+            this.patientDetails.Controls.Add(this.editCard);
             this.patientDetails.Controls.Add(this.patientCard);
             this.patientDetails.Controls.Add(this.patientName);
             this.patientDetails.Dock = System.Windows.Forms.DockStyle.Top;
@@ -84,10 +88,11 @@
             this.patientCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.patientCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.patientCard.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.patientCard.Location = new System.Drawing.Point(300, 20);
+            this.patientCard.Location = new System.Drawing.Point(280, 20);
+            this.patientCard.Multiline = true;
             this.patientCard.Name = "patientCard";
             this.patientCard.ReadOnly = true;
-            this.patientCard.Size = new System.Drawing.Size(253, 19);
+            this.patientCard.Size = new System.Drawing.Size(298, 150);
             this.patientCard.TabIndex = 1;
             this.patientCard.DoubleClick += new System.EventHandler(this.patientCard_DoubleClick);
             // 
@@ -97,9 +102,10 @@
             this.patientName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.patientName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.patientName.Location = new System.Drawing.Point(20, 20);
+            this.patientName.Multiline = true;
             this.patientName.Name = "patientName";
             this.patientName.ReadOnly = true;
-            this.patientName.Size = new System.Drawing.Size(253, 19);
+            this.patientName.Size = new System.Drawing.Size(250, 150);
             this.patientName.TabIndex = 0;
             // 
             // patients_panel
@@ -187,6 +193,25 @@
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
+            // editCard
+            // 
+            this.editCard.Location = new System.Drawing.Point(494, 138);
+            this.editCard.Name = "editCard";
+            this.editCard.Size = new System.Drawing.Size(75, 23);
+            this.editCard.TabIndex = 2;
+            this.editCard.Text = "edytuj";
+            this.editCard.UseVisualStyleBackColor = true;
+            this.editCard.Visible = false;
+            this.editCard.Click += new System.EventHandler(this.editCard_Click);
+            // 
+            // editCardForm
+            // 
+            this.editCardForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editCardForm.Location = new System.Drawing.Point(200, 300);
+            this.editCardForm.Name = "editCardForm";
+            this.editCardForm.Size = new System.Drawing.Size(598, 274);
+            this.editCardForm.TabIndex = 13;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,5 +246,7 @@
         private System.Windows.Forms.Panel patientDetails;
         private System.Windows.Forms.TextBox patientName;
         private System.Windows.Forms.TextBox patientCard;
+        private System.Windows.Forms.Button editCard;
+        private System.Windows.Forms.Panel editCardForm;
     }
 }
