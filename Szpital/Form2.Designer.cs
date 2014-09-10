@@ -30,6 +30,8 @@
         {
             this.footer = new System.Windows.Forms.Panel();
             this.body = new System.Windows.Forms.Panel();
+            this.patientDetails = new System.Windows.Forms.Panel();
+            this.patientName = new System.Windows.Forms.TextBox();
             this.patients_panel = new System.Windows.Forms.Panel();
             this.line = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
@@ -38,11 +40,9 @@
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
-            this.patientDetails = new System.Windows.Forms.Panel();
-            this.patientName = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
-            this.header.SuspendLayout();
             this.patientDetails.SuspendLayout();
+            this.header.SuspendLayout();
             this.SuspendLayout();
             // 
             // footer
@@ -67,6 +67,25 @@
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(798, 598);
             this.body.TabIndex = 10;
+            // 
+            // patientDetails
+            // 
+            this.patientDetails.Controls.Add(this.patientName);
+            this.patientDetails.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientDetails.Location = new System.Drawing.Point(200, 82);
+            this.patientDetails.Name = "patientDetails";
+            this.patientDetails.Size = new System.Drawing.Size(598, 492);
+            this.patientDetails.TabIndex = 12;
+            // 
+            // patientName
+            // 
+            this.patientName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.patientName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.patientName.Location = new System.Drawing.Point(20, 20);
+            this.patientName.Name = "patientName";
+            this.patientName.Size = new System.Drawing.Size(253, 19);
+            this.patientName.TabIndex = 0;
             // 
             // patients_panel
             // 
@@ -153,25 +172,6 @@
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
-            // patientDetails
-            // 
-            this.patientDetails.Controls.Add(this.patientName);
-            this.patientDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.patientDetails.Location = new System.Drawing.Point(200, 82);
-            this.patientDetails.Name = "patientDetails";
-            this.patientDetails.Size = new System.Drawing.Size(598, 150);
-            this.patientDetails.TabIndex = 12;
-            // 
-            // patientName
-            // 
-            this.patientName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.patientName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.patientName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.patientName.Location = new System.Drawing.Point(20, 20);
-            this.patientName.Name = "patientName";
-            this.patientName.Size = new System.Drawing.Size(253, 19);
-            this.patientName.TabIndex = 0;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,9 +184,9 @@
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "Form2";
             this.body.ResumeLayout(false);
-            this.header.ResumeLayout(false);
             this.patientDetails.ResumeLayout(false);
             this.patientDetails.PerformLayout();
+            this.header.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
