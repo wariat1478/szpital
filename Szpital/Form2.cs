@@ -131,7 +131,7 @@ namespace Szpital
 
         private void showCardForm(string patientId)
         {
-            
+            Dictionary<string, string> card = DB.Instance.getCard(patientId);
         }
     }
 }

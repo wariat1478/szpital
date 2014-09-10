@@ -146,6 +146,28 @@ namespace Szpital
             return row;
         }
 
+        public Dictionary<string, string> getCard(string patientId)
+        {
+            Dictionary<string, string> row = new Dictionary<string, string>();
+
+            string query = string.Format("SELECT * FROM karty WHERE pacjent_id={0}", patientId);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    row.Add(dataReader.GetName(i).ToLower(), dataReader.IsDBNull(i) ? "" : dataReader.GetString(i));
+                }
+            }
+
+            dataReader.Close();
+
+            return row;
+        }
+
 
         /*public List<Dictionary<string, string>> Select(string query)
         {
