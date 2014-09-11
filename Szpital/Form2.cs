@@ -115,18 +115,21 @@ namespace Szpital
             editCardForm.Visible = true;
             Dictionary<string, string> card = DB.Instance.getCard(patientId);
 
-            
             sala.Text = card["sala"];
             rozpoznanie.Text = card["rozpoznanie"];
             data_przyjecia.Text = card["data_przyjecia"];
             data_wypisu.Text = card["data_wypisu"];
+            save_button.Tag = card["id"];
+        }
 
-            save_button.Click += (s, e) =>
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+
+            if (DB.Instance.saveCard(sala.Text, rozpoznanie.Text, data_przyjecia.Text, data_wypisu.Text, (string)button.Tag))
             {
-                Button button = (Button)s;
                 editCardForm.Visible = false;
-            };
-
+            }            
         }
     }
 }

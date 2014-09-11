@@ -43,7 +43,8 @@ namespace Szpital
             string connString = "server=" + this.host + ";"
                               + "database=" + this.database + ";"
                               + "uid=" + this.username + ";"
-                              + "password=" + this.password + ";";
+                              + "password=" + this.password + ";"
+                              + "Convert Zero Datetime=True;";
 
             conn = new MySqlConnection(connString);
             conn.Open();
@@ -135,9 +136,23 @@ namespace Szpital
 
             if (dataReader.Read())
             {
+                string name, value;
                 for (int i = 0; i < dataReader.FieldCount; i++)
                 {
-                    row.Add(dataReader.GetName(i).ToLower(), dataReader.IsDBNull(i) ? "" : dataReader.GetString(i));
+                    name  = dataReader.GetName(i).ToLower();
+                    value = "";
+                    if (!dataReader.IsDBNull(i))
+                    {
+                        if (name == "data_przyjecia" || name == "data_wypisu")
+                        {
+                            value = (dataReader.GetDateTime(i) != DateTime.MinValue) ? dataReader.GetDateTime(i).ToString() : "";
+                        }
+                        else
+                        {
+                            value = dataReader.GetString(i);
+                        }
+                    }
+                    row.Add(name, value);
                 }
             }
 
@@ -157,15 +172,42 @@ namespace Szpital
 
             if (dataReader.Read())
             {
+                string name, value;
                 for (int i = 0; i < dataReader.FieldCount; i++)
                 {
-                    row.Add(dataReader.GetName(i).ToLower(), dataReader.IsDBNull(i) ? "" : dataReader.GetString(i));
+                    name  = dataReader.GetName(i).ToLower();
+                    value = "";
+                    if (!dataReader.IsDBNull(i))
+                    {
+                        if (name == "data_przyjecia" || name == "data_wypisu")
+                        {
+                            value = (dataReader.GetDateTime(i) != DateTime.MinValue) ? dataReader.GetDateTime(i).ToString() : "";
+                        }
+                        else
+                        {
+                            value = dataReader.GetString(i);
+                        }
+                    }
+                    row.Add(name, value);
                 }
             }
 
             dataReader.Close();
 
             return row;
+        }
+
+        public bool saveCard(string room, string recognition, string date_in, string date_out, string cardId)
+        {
+            string query = string.Format("UPDATE karty SET sala='{0}', rozpoznanie='{1}', data_przyjecia='{2}', data_wypisu='{3}' WHERE id={4}", room, recognition, date_in, date_out, cardId);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+
+            return false;
         }
 
 
