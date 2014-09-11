@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.body = new System.Windows.Forms.Panel();
-            this.login = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.MaskedTextBox();
             this.username = new System.Windows.Forms.TextBox();
             this.message = new System.Windows.Forms.Panel();
@@ -38,11 +37,12 @@
             this.line = new System.Windows.Forms.Panel();
             this.footer = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.controls = new System.Windows.Forms.Panel();
+            this.login = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
             this.message.SuspendLayout();
             this.messageBody.SuspendLayout();
@@ -66,17 +66,6 @@
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(378, 448);
             this.body.TabIndex = 9;
-            // 
-            // login
-            // 
-            this.login.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.login.Location = new System.Drawing.Point(21, 257);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(336, 37);
-            this.login.TabIndex = 6;
-            this.login.Text = "zaloguj";
-            this.login.UseVisualStyleBackColor = true;
-            this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // password
             // 
@@ -164,6 +153,18 @@
             this.header.TabIndex = 0;
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.textBox1.Location = new System.Drawing.Point(81, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "Logowanie";
+            // 
             // controls
             // 
             this.controls.Controls.Add(this.minimizeButton);
@@ -174,6 +175,30 @@
             this.controls.Size = new System.Drawing.Size(97, 80);
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
+            // login
+            // 
+            this.login.BackgroundImage = global::Szpital.Properties.Resources.loginButton;
+            this.login.FlatAppearance.BorderSize = 0;
+            this.login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.login.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.login.ForeColor = System.Drawing.Color.White;
+            this.login.Location = new System.Drawing.Point(21, 257);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(336, 40);
+            this.login.TabIndex = 6;
+            this.login.Text = "Zaloguj";
+            this.login.UseVisualStyleBackColor = true;
+            this.login.Click += new System.EventHandler(this.login_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // minimizeButton
             // 
@@ -198,27 +223,6 @@
             this.closeButton.TabIndex = 0;
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
-            this.textBox1.Location = new System.Drawing.Point(81, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Logowanie";
             // 
             // Form1
             // 

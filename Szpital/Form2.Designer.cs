@@ -52,10 +52,17 @@
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
+            this.restoreButton = new System.Windows.Forms.Button();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.maximizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.body.SuspendLayout();
             this.editCardForm.SuspendLayout();
             this.patientDetails.SuspendLayout();
             this.header.SuspendLayout();
+            this.controls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // footer
@@ -250,6 +257,7 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.header.Controls.Add(this.pictureBox1);
             this.header.Controls.Add(this.patients_button);
             this.header.Controls.Add(this.end_button);
             this.header.Controls.Add(this.endbreak_button);
@@ -264,7 +272,7 @@
             // 
             // patients_button
             // 
-            this.patients_button.Location = new System.Drawing.Point(400, 3);
+            this.patients_button.Location = new System.Drawing.Point(248, 21);
             this.patients_button.Name = "patients_button";
             this.patients_button.Size = new System.Drawing.Size(106, 23);
             this.patients_button.TabIndex = 0;
@@ -306,12 +314,74 @@
             // 
             // controls
             // 
+            this.controls.Controls.Add(this.restoreButton);
+            this.controls.Controls.Add(this.minimizeButton);
+            this.controls.Controls.Add(this.maximizeButton);
+            this.controls.Controls.Add(this.closeButton);
             this.controls.Dock = System.Windows.Forms.DockStyle.Right;
             this.controls.Location = new System.Drawing.Point(701, 0);
             this.controls.Name = "controls";
             this.controls.Size = new System.Drawing.Size(97, 80);
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
+            // restoreButton
+            // 
+            this.restoreButton.BackgroundImage = global::Szpital.Properties.Resources.restoreButton;
+            this.restoreButton.FlatAppearance.BorderSize = 0;
+            this.restoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.restoreButton.Location = new System.Drawing.Point(59, 10);
+            this.restoreButton.Name = "restoreButton";
+            this.restoreButton.Size = new System.Drawing.Size(9, 9);
+            this.restoreButton.TabIndex = 5;
+            this.restoreButton.UseVisualStyleBackColor = true;
+            this.restoreButton.Visible = false;
+            this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackgroundImage = global::Szpital.Properties.Resources.minimizeButton;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Location = new System.Drawing.Point(40, 10);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(9, 9);
+            this.minimizeButton.TabIndex = 4;
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // maximizeButton
+            // 
+            this.maximizeButton.BackgroundImage = global::Szpital.Properties.Resources.maximizeButton;
+            this.maximizeButton.FlatAppearance.BorderSize = 0;
+            this.maximizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maximizeButton.Location = new System.Drawing.Point(59, 10);
+            this.maximizeButton.Name = "maximizeButton";
+            this.maximizeButton.Size = new System.Drawing.Size(9, 9);
+            this.maximizeButton.TabIndex = 3;
+            this.maximizeButton.UseVisualStyleBackColor = true;
+            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackgroundImage = global::Szpital.Properties.Resources.closeButton;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Location = new System.Drawing.Point(78, 10);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(9, 9);
+            this.closeButton.TabIndex = 2;
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // Form2
             // 
@@ -330,6 +400,8 @@
             this.patientDetails.ResumeLayout(false);
             this.patientDetails.PerformLayout();
             this.header.ResumeLayout(false);
+            this.controls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,5 +432,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button maximizeButton;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Button restoreButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

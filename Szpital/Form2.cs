@@ -26,7 +26,8 @@ namespace Szpital
         {
             //this.CenterToScreen();
             InitializeComponent();
-            
+
+            showPatients();            
         }
 
         private void header_MouseDown(object sender, MouseEventArgs e)
@@ -130,6 +131,30 @@ namespace Szpital
             {
                 editCardForm.Visible = false;
             }            
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            maximizeButton.Visible = false;
+            restoreButton.Visible  = true; 
+        }
+
+        private void restoreButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            maximizeButton.Visible = true;
+            restoreButton.Visible  = false; 
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
