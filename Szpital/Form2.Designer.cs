@@ -50,13 +50,13 @@
             this.patients_button = new System.Windows.Forms.Button();
             this.end_button = new System.Windows.Forms.Button();
             this.endbreak_button = new System.Windows.Forms.Button();
-            this.break_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.break_button = new System.Windows.Forms.Button();
             this.restoreButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.body.SuspendLayout();
             this.editCardForm.SuspendLayout();
             this.patientDetails.SuspendLayout();
@@ -272,7 +272,7 @@
             // 
             // patients_button
             // 
-            this.patients_button.Location = new System.Drawing.Point(248, 21);
+            this.patients_button.Location = new System.Drawing.Point(152, 21);
             this.patients_button.Name = "patients_button";
             this.patients_button.Size = new System.Drawing.Size(106, 23);
             this.patients_button.TabIndex = 0;
@@ -292,7 +292,7 @@
             // 
             // endbreak_button
             // 
-            this.endbreak_button.Location = new System.Drawing.Point(580, 3);
+            this.endbreak_button.Location = new System.Drawing.Point(580, 6);
             this.endbreak_button.Name = "endbreak_button";
             this.endbreak_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.endbreak_button.Size = new System.Drawing.Size(96, 23);
@@ -301,16 +301,6 @@
             this.endbreak_button.UseVisualStyleBackColor = true;
             this.endbreak_button.Visible = false;
             this.endbreak_button.Click += new System.EventHandler(this.endbreak_button_Click);
-            // 
-            // break_button
-            // 
-            this.break_button.Location = new System.Drawing.Point(580, 3);
-            this.break_button.Name = "break_button";
-            this.break_button.Size = new System.Drawing.Size(96, 23);
-            this.break_button.TabIndex = 11;
-            this.break_button.Text = "Przerwa";
-            this.break_button.UseVisualStyleBackColor = true;
-            this.break_button.Click += new System.EventHandler(this.break_button_Click);
             // 
             // controls
             // 
@@ -324,6 +314,33 @@
             this.controls.Size = new System.Drawing.Size(97, 80);
             this.controls.TabIndex = 0;
             this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // break_button
+            // 
+            this.break_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.break_button.BackgroundImage = global::Szpital.Properties.Resources.puseButton;
+            this.break_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.break_button.FlatAppearance.BorderSize = 0;
+            this.break_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.break_button.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.break_button.ForeColor = System.Drawing.Color.White;
+            this.break_button.Location = new System.Drawing.Point(393, 10);
+            this.break_button.Name = "break_button";
+            this.break_button.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.break_button.Size = new System.Drawing.Size(60, 60);
+            this.break_button.TabIndex = 11;
+            this.break_button.Text = "Przerwa";
+            this.break_button.UseVisualStyleBackColor = false;
+            this.break_button.Click += new System.EventHandler(this.break_button_Click);
             // 
             // restoreButton
             // 
@@ -373,15 +390,6 @@
             this.closeButton.TabIndex = 2;
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
             // 
             // Form2
             // 
