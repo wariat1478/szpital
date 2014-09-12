@@ -48,10 +48,10 @@
             this.line = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
             this.patients_button = new System.Windows.Forms.Button();
-            this.end_button = new System.Windows.Forms.Button();
-            this.endbreak_button = new System.Windows.Forms.Button();
             this.controls = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.end_button = new System.Windows.Forms.Button();
+            this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
             this.restoreButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
@@ -280,28 +280,6 @@
             this.patients_button.UseVisualStyleBackColor = true;
             this.patients_button.Click += new System.EventHandler(this.button1_Click);
             // 
-            // end_button
-            // 
-            this.end_button.Location = new System.Drawing.Point(580, 32);
-            this.end_button.Name = "end_button";
-            this.end_button.Size = new System.Drawing.Size(96, 23);
-            this.end_button.TabIndex = 13;
-            this.end_button.Text = "Koniec";
-            this.end_button.UseVisualStyleBackColor = true;
-            this.end_button.Click += new System.EventHandler(this.end_button_Click);
-            // 
-            // endbreak_button
-            // 
-            this.endbreak_button.Location = new System.Drawing.Point(580, 6);
-            this.endbreak_button.Name = "endbreak_button";
-            this.endbreak_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.endbreak_button.Size = new System.Drawing.Size(96, 23);
-            this.endbreak_button.TabIndex = 12;
-            this.endbreak_button.Text = "Koniec przerwy";
-            this.endbreak_button.UseVisualStyleBackColor = true;
-            this.endbreak_button.Visible = false;
-            this.endbreak_button.Click += new System.EventHandler(this.endbreak_button_Click);
-            // 
             // controls
             // 
             this.controls.Controls.Add(this.restoreButton);
@@ -324,6 +302,40 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // end_button
+            // 
+            this.end_button.BackgroundImage = global::Szpital.Properties.Resources.endButton;
+            this.end_button.FlatAppearance.BorderSize = 0;
+            this.end_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.end_button.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.end_button.ForeColor = System.Drawing.Color.White;
+            this.end_button.Location = new System.Drawing.Point(631, 10);
+            this.end_button.Name = "end_button";
+            this.end_button.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.end_button.Size = new System.Drawing.Size(60, 60);
+            this.end_button.TabIndex = 13;
+            this.end_button.Text = "Koniec";
+            this.end_button.UseVisualStyleBackColor = true;
+            this.end_button.Click += new System.EventHandler(this.end_button_Click);
+            // 
+            // endbreak_button
+            // 
+            this.endbreak_button.BackgroundImage = global::Szpital.Properties.Resources.playButton;
+            this.endbreak_button.FlatAppearance.BorderSize = 0;
+            this.endbreak_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endbreak_button.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.endbreak_button.ForeColor = System.Drawing.Color.White;
+            this.endbreak_button.Location = new System.Drawing.Point(561, 10);
+            this.endbreak_button.Name = "endbreak_button";
+            this.endbreak_button.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.endbreak_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.endbreak_button.Size = new System.Drawing.Size(60, 60);
+            this.endbreak_button.TabIndex = 12;
+            this.endbreak_button.Text = "Powrót";
+            this.endbreak_button.UseVisualStyleBackColor = true;
+            this.endbreak_button.Visible = false;
+            this.endbreak_button.Click += new System.EventHandler(this.endbreak_button_Click);
+            // 
             // break_button
             // 
             this.break_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
@@ -333,7 +345,7 @@
             this.break_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.break_button.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.break_button.ForeColor = System.Drawing.Color.White;
-            this.break_button.Location = new System.Drawing.Point(393, 10);
+            this.break_button.Location = new System.Drawing.Point(561, 10);
             this.break_button.Name = "break_button";
             this.break_button.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
             this.break_button.Size = new System.Drawing.Size(60, 60);

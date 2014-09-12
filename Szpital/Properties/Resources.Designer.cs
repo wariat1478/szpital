@@ -73,6 +73,16 @@ namespace Szpital.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap endButton {
+            get {
+                object obj = ResourceManager.GetObject("endButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loginButton {
             get {
                 object obj = ResourceManager.GetObject("loginButton", resourceCulture);
@@ -106,6 +116,16 @@ namespace Szpital.Properties {
         internal static System.Drawing.Bitmap minimizeButton {
             get {
                 object obj = ResourceManager.GetObject("minimizeButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playButton {
+            get {
+                object obj = ResourceManager.GetObject("playButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
