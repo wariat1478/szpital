@@ -210,6 +210,30 @@ namespace Szpital
             return false;
         }
 
+        public List<Dictionary<string, string>> getTreatment(string cardId)
+        {
+            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+
+            string query = string.Format("SELECT * FROM leczenie WHERE karta_id={0}", cardId);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Dictionary<string, string> row = new Dictionary<string, string>();
+                for (int i = 0; i < dataReader.FieldCount; i++)
+                {
+                    row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
+                }
+                list.Add(row);
+            }
+
+            dataReader.Close();
+
+            return list;
+        }
+
 
         /*public List<Dictionary<string, string>> Select(string query)
         {
