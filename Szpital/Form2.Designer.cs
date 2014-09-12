@@ -47,22 +47,25 @@
             this.patients_panel = new System.Windows.Forms.Panel();
             this.line = new System.Windows.Forms.Panel();
             this.header = new System.Windows.Forms.Panel();
-            this.patients_button = new System.Windows.Forms.Button();
-            this.controls = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.patients_button = new System.Windows.Forms.Button();
             this.end_button = new System.Windows.Forms.Button();
             this.endbreak_button = new System.Windows.Forms.Button();
             this.break_button = new System.Windows.Forms.Button();
+            this.controls = new System.Windows.Forms.Panel();
             this.restoreButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.panelTreatment = new System.Windows.Forms.Panel();
+            this.patientTreatment = new System.Windows.Forms.TextBox();
             this.body.SuspendLayout();
             this.editCardForm.SuspendLayout();
             this.patientDetails.SuspendLayout();
             this.header.SuspendLayout();
-            this.controls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.controls.SuspendLayout();
+            this.panelTreatment.SuspendLayout();
             this.SuspendLayout();
             // 
             // footer
@@ -91,6 +94,7 @@
             // 
             // editCardForm
             // 
+            this.editCardForm.Controls.Add(this.panelTreatment);
             this.editCardForm.Controls.Add(this.save_button);
             this.editCardForm.Controls.Add(this.data_wypisu);
             this.editCardForm.Controls.Add(this.data_przyjecia);
@@ -270,6 +274,15 @@
             this.header.TabIndex = 0;
             this.header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // patients_button
             // 
             this.patients_button.Location = new System.Drawing.Point(152, 21);
@@ -279,28 +292,6 @@
             this.patients_button.Text = "Pokaż pacjentów";
             this.patients_button.UseVisualStyleBackColor = true;
             this.patients_button.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // controls
-            // 
-            this.controls.Controls.Add(this.restoreButton);
-            this.controls.Controls.Add(this.minimizeButton);
-            this.controls.Controls.Add(this.maximizeButton);
-            this.controls.Controls.Add(this.closeButton);
-            this.controls.Dock = System.Windows.Forms.DockStyle.Right;
-            this.controls.Location = new System.Drawing.Point(701, 0);
-            this.controls.Name = "controls";
-            this.controls.Size = new System.Drawing.Size(97, 80);
-            this.controls.TabIndex = 0;
-            this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Szpital.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
             // 
             // end_button
             // 
@@ -354,6 +345,19 @@
             this.break_button.UseVisualStyleBackColor = false;
             this.break_button.Click += new System.EventHandler(this.break_button_Click);
             // 
+            // controls
+            // 
+            this.controls.Controls.Add(this.restoreButton);
+            this.controls.Controls.Add(this.minimizeButton);
+            this.controls.Controls.Add(this.maximizeButton);
+            this.controls.Controls.Add(this.closeButton);
+            this.controls.Dock = System.Windows.Forms.DockStyle.Right;
+            this.controls.Location = new System.Drawing.Point(701, 0);
+            this.controls.Name = "controls";
+            this.controls.Size = new System.Drawing.Size(97, 80);
+            this.controls.TabIndex = 0;
+            this.controls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.header_MouseDown);
+            // 
             // restoreButton
             // 
             this.restoreButton.BackgroundImage = global::Szpital.Properties.Resources.restoreButton;
@@ -403,6 +407,26 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // panelTreatment
+            // 
+            this.panelTreatment.Controls.Add(this.patientTreatment);
+            this.panelTreatment.Location = new System.Drawing.Point(0, 0);
+            this.panelTreatment.Name = "panelTreatment";
+            this.panelTreatment.Size = new System.Drawing.Size(598, 274);
+            this.panelTreatment.TabIndex = 27;
+            // 
+            // patientTreatment
+            // 
+            this.patientTreatment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.patientTreatment.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientTreatment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.patientTreatment.Location = new System.Drawing.Point(20, 27);
+            this.patientTreatment.Multiline = true;
+            this.patientTreatment.Name = "patientTreatment";
+            this.patientTreatment.ReadOnly = true;
+            this.patientTreatment.Size = new System.Drawing.Size(298, 150);
+            this.patientTreatment.TabIndex = 2;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,8 +444,10 @@
             this.patientDetails.ResumeLayout(false);
             this.patientDetails.PerformLayout();
             this.header.ResumeLayout(false);
-            this.controls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.controls.ResumeLayout(false);
+            this.panelTreatment.ResumeLayout(false);
+            this.panelTreatment.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -457,5 +483,7 @@
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button restoreButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelTreatment;
+        private System.Windows.Forms.TextBox patientTreatment;
     }
 }

@@ -101,7 +101,16 @@ namespace Szpital
             Dictionary<string, string> patient = DB.Instance.getPatient(patientId);
             patientName.Text = "Dane pacjenta: " + Environment.NewLine + Environment.NewLine + patient["imie"] + " " + patient["nazwisko"] + Environment.NewLine + "Nr Ubezpieczenia: " + patient["nr_ubezpieczenia"] + Environment.NewLine + "Telefon kontaktowy: " + patient["telefon_kontaktowy"] + Environment.NewLine + "Pesel: " + patient["pesel"];
             patientCard.Text = "Karta pacjenta: " + Environment.NewLine + Environment.NewLine + "Sala: " + patient["sala"] + Environment.NewLine + "Rozpoznanie: " + patient["rozpoznanie"] + Environment.NewLine + "Data przyjęcia: " + patient["data_przyjecia"] + Environment.NewLine + "Data wypisu: " + patient["data_wypisu"];
-            editCard.Tag = patient["id"];          
+            editCard.Tag = patient["id"];
+
+            patientTreatment.Visible = true;
+            panelTreatment.Visible = true;
+            List<Dictionary<string, string>> list = DB.Instance.getTreatment(patientId);
+            patientTreatment.Text = "Leczenie: " + Environment.NewLine + Environment.NewLine;
+            for (int i = 0; i < list.Count; i++)
+            {
+                patientTreatment.Text = patientTreatment.Text + list[i]["kiedy"] + " " + list[i]["opis"] + Environment.NewLine;
+            }
         }
 
 
