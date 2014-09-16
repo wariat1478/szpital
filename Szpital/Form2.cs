@@ -99,20 +99,41 @@ namespace Szpital
         {
             editCard.Visible = true;
             Dictionary<string, string> patient = DB.Instance.getPatient(patientId);
-            patientName.Text = "Dane pacjenta: " + Environment.NewLine + Environment.NewLine + patient["imie"] + " " + patient["nazwisko"] + Environment.NewLine + "Nr Ubezpieczenia: " + patient["nr_ubezpieczenia"] + Environment.NewLine + "Telefon kontaktowy: " + patient["telefon_kontaktowy"] + Environment.NewLine + "Pesel: " + patient["pesel"];
-            patientCard.Text = "Karta pacjenta: " + Environment.NewLine + Environment.NewLine + "Sala: " + patient["sala"] + Environment.NewLine + "Rozpoznanie: " + patient["rozpoznanie"] + Environment.NewLine + "Data przyjęcia: " + patient["data_przyjecia"] + Environment.NewLine + "Data wypisu: " + patient["data_wypisu"];
+
+            patientName.Text        = patient["imie"] + " " + patient["nazwisko"];
+            patientInsurance.Text   = patient["nr_ubezpieczenia"];
+            patientContact.Text     = patient["telefon_kontaktowy"];
+            patientPesel.Text       = patient["pesel"];
+
+            DateTime dateIn, dateOut;
+            DateTime.TryParseExact(patient["data_przyjecia"], "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out dateIn);
+
+            string dataWypisu = "";
+
+            if (patient["data_wypisu"] != "")
+            {
+                DateTime.TryParseExact(patient["data_wypisu"], "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out dateOut);
+                dataWypisu = dateOut.ToString("dd.MM.yyyy HH:mm");
+            }
+
+            cardRoom.Text = patient["sala"];
+            cardDateIn.Text = dateIn.ToString("dd.MM.yyyy HH:mm");
+            cardDateOut.Text = dataWypisu;
+            cardRecognition.Text = patient["rozpoznanie"];
+
             editCard.Tag = patient["id"];
 
-            patientTreatment.Visible = true;
-            panelTreatment.Visible = true;
-            List<Dictionary<string, string>> list = DB.Instance.getTreatment(patientId);
+            patientDetails.Visible = true;
+            treatment.Visible = true;
+
+            /*List<Dictionary<string, string>> list = DB.Instance.getTreatment(patientId);
+
             patientTreatment.Text = "Leczenie: " + Environment.NewLine + Environment.NewLine;
             for (int i = 0; i < list.Count; i++)
             {
                 patientTreatment.Text = patientTreatment.Text + list[i]["kiedy"] + " " + list[i]["opis"] + Environment.NewLine;
-            }
+            }*/
         }
-
 
         private void editCard_Click(object sender, EventArgs e)
         {
