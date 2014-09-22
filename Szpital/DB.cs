@@ -52,9 +52,12 @@ namespace Szpital
 
         public bool checkUser(string username, string password)
         {
-            string query = string.Format("SELECT count(*) FROM konta WHERE nazwa_uzytkownika='{0}' AND haslo='{1}'", username, password);
+            string query = "SELECT count(*) FROM konta WHERE nazwa_uzytkownika='@username' AND haslo='@password'";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             if (dataReader.Read())
@@ -72,9 +75,11 @@ namespace Szpital
 
         public void setUser(string username)
         {
-            string query = string.Format("SELECT * FROM konta WHERE nazwa_uzytkownika='{0}'", username);
+            string query = "SELECT * FROM konta WHERE nazwa_uzytkownika='@username'";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             while (dataReader.Read())
@@ -90,9 +95,12 @@ namespace Szpital
 
         public bool isEventAdded(string accountId, string type)
         {
-            string query = string.Format("SELECT id FROM historia WHERE konto_id={0} AND typ={1} AND DATE_FORMAT(kiedy, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')", accountId, type);
+            string query = "SELECT id FROM historia WHERE konto_id=@id AND typ=@type AND DATE_FORMAT(kiedy, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", accountId);
+            cmd.Parameters.AddWithValue("@type", type);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             if (dataReader.HasRows)
@@ -107,9 +115,12 @@ namespace Szpital
 
         public bool addEvent(string accountId, string type)
         {
-            string query = string.Format("INSERT INTO historia (konto_id, kiedy, typ) VALUES ({0}, NOW(), {1})", accountId, type);
+            string query = "INSERT INTO historia (konto_id, kiedy, typ) VALUES (@id, NOW(), '@type')";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", accountId);
+            cmd.Parameters.AddWithValue("@type", type);
+
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -122,9 +133,11 @@ namespace Szpital
         {
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
 
-            string query = string.Format("SELECT p.* FROM lekarze_pacjenci lp LEFT JOIN pacjenci p ON (lp.pacjent_id=p.id) WHERE lp.lekarz_id={0}", doctorId);
+            string query = "SELECT p.* FROM lekarze_pacjenci lp LEFT JOIN pacjenci p ON (lp.pacjent_id=p.id) WHERE lp.lekarz_id=@id";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", doctorId);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             while (dataReader.Read())
@@ -146,9 +159,11 @@ namespace Szpital
         {
             Dictionary<string, string> row = new Dictionary<string, string>();
 
-            string query = string.Format("SELECT p.*, k.id as karta, k.sala, k.rozpoznanie, k.data_przyjecia, k.data_wypisu FROM pacjenci p LEFT JOIN karty k ON (p.id=k.pacjent_id) WHERE p.id={0} order by data_przyjecia desc", patientId);
+            string query = "SELECT p.*, k.id as karta, k.sala, k.rozpoznanie, k.data_przyjecia, k.data_wypisu FROM pacjenci p LEFT JOIN karty k ON (p.id=k.pacjent_id) WHERE p.id=@id order by data_przyjecia desc";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", patientId);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             if (dataReader.Read())
@@ -182,9 +197,11 @@ namespace Szpital
         {
             Dictionary<string, string> row = new Dictionary<string, string>();
 
-            string query = string.Format("SELECT * FROM karty WHERE pacjent_id={0}", patientId);
+            string query = "SELECT * FROM karty WHERE pacjent_id=@id";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", patientId);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             if (dataReader.Read())
@@ -216,9 +233,15 @@ namespace Szpital
 
         public bool saveCard(string room, string recognition, string date_in, string date_out, string cardId)
         {
-            string query = string.Format("UPDATE karty SET sala='{0}', rozpoznanie='{1}', data_przyjecia='{2}', data_wypisu='{3}' WHERE id={4}", room, recognition, date_in, date_out, cardId);
+            string query = "UPDATE karty SET sala='@room', rozpoznanie='@recognition', data_przyjecia='@dateIn', data_wypisu='@dateOut' WHERE id=@id";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@room", room);
+            cmd.Parameters.AddWithValue("@recognition", recognition);
+            cmd.Parameters.AddWithValue("@dateIn", date_in);
+            cmd.Parameters.AddWithValue("@dateOut", date_out);
+            cmd.Parameters.AddWithValue("@id", cardId);
+
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -230,9 +253,12 @@ namespace Szpital
 
         public bool saveTreatment(string text, string cardId)
         {
-            string query = string.Format("INSERT INTO leczenie (karta_id, opis, kiedy) VALUES ('{0}','{1}',now())",cardId ,text);
+            string query = "INSERT INTO leczenie (karta_id, opis, kiedy) VALUES (@id, @desc, now())";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", cardId);
+            cmd.Parameters.AddWithValue("@id", text);
+
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -245,9 +271,11 @@ namespace Szpital
         {
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
 
-            string query = string.Format("SELECT * FROM leczenie WHERE karta_id={0}", cardId);
+            string query = "SELECT * FROM leczenie WHERE karta_id=@id";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", cardId);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
 
             while (dataReader.Read())
