@@ -88,6 +88,23 @@ namespace Szpital
             dataReader.Close();
         }
 
+        public bool isEventAdded(string accountId, string type)
+        {
+            string query = string.Format("SELECT id FROM historia WHERE konto_id={0} AND typ={1} AND DATE_FORMAT(kiedy, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')", accountId, type);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.HasRows)
+            {
+                dataReader.Close();
+                return true;
+            }
+
+            dataReader.Close();
+            return false;
+        }
+
         public bool addEvent(string accountId, string type)
         {
             string query = string.Format("INSERT INTO historia (konto_id, kiedy, typ) VALUES ({0}, NOW(), {1})", accountId, type);
@@ -233,121 +250,5 @@ namespace Szpital
 
             return list;
         }
-
-
-        /*public List<Dictionary<string, string>> Select(string query)
-        {
-            List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    Dictionary<string, string> row = new Dictionary<string, string>();
-                    for (int i = 0; i < dataReader.FieldCount; i++)
-                    {
-                        row.Add(dataReader.GetName(i).ToLower(), dataReader.GetString(i));
-                    }
-                    list.Add(row);
-                }
-
-                dataReader.Close();
-                this.CloseConnection();
-
-                return list;
-            }
-
-            return list;
-        }
-
-        public int Count(string table, string[] conditions)
-        {
-            int count = 0;
-            if (this.OpenConnection() == true)
-            {
-                string where = conditions.Length > 0 ? "WHERE " + string.Join(" AND ", conditions): "";
-                string query = string.Format("SELECT count(*) FROM {0} {1}", table, where);
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                if (dataReader.Read())
-                {
-                    count = Convert.ToInt32(dataReader["count(*)"]);
-                }
-
-                dataReader.Close();
-                this.CloseConnection();
-            }
-
-            return count;
-        }
-
-        public bool Insert(string table, string[] fields, string[] values)
-        {
-            string query;
-
-            if (fields.Length != values.Length)
-                return false;
-
-            for (int i = 0; i < fields.Length; i++)
-            {
-                fields[i] = "`" + fields[i] + "`";
-            }
-            for (int i = 0; i < values.Length; i++)
-            {
-                values[i] = "'" + values[i] + "'";
-            }
-
-            query = "INSERT INTO " + table + " (" + String.Join(", ", fields) + ") VALUES (" + String.Join(", ", values) + ")";
-
-            if (OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                this.CloseConnection();
-
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool Update(string table, string[] fields, string[] conditions)
-        {
-            if (this.OpenConnection() == true)
-            {
-                string where = conditions.Length > 0 ? "WHERE " + string.Join(" AND ", conditions) : "";
-                string query = string.Format("UPATE {0} SET {1} {2}", table, String.Join(", ", fields), where);
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                this.CloseConnection();
-
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool Delete(string table, string[] conditions)
-        {
-            if (this.OpenConnection() == true)
-            {
-                string where = conditions.Length > 0 ? "WHERE " + string.Join(" AND ", conditions) : "";
-                string query = string.Format("DELETE FROM {0} {1}", table, where);
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                this.CloseConnection();
-
-                return true;
-            }
-
-            return false;
-        }*/
     }
 }

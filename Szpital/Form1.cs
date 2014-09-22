@@ -53,16 +53,9 @@ namespace Szpital
             if (DB.Instance.checkUser(username.Text, CalculateSHA1(password.Text, Encoding.Unicode)))
             {
                 DB.Instance.setUser(username.Text);
-                DB.Instance.addEvent(DB.Instance.user["id"], "1");
 
-                /*List<Dictionary<string, string>> list = DB.Instance.getPatients(DB.Instance.user["lekarz_id"]);
-
-                string imie, nazwisko;
-                for (int i = 0; i < list.Count; i++)
-                {
-                    imie = list[i]["imie"];
-                    nazwisko = list[i]["nazwisko"];
-                }*/
+                if (!DB.Instance.isEventAdded(DB.Instance.user["id"], "1"))
+                    DB.Instance.addEvent(DB.Instance.user["id"], "1");
 
                 Form f2 = new Form2();
                 f2.WindowState = FormWindowState.Normal;
