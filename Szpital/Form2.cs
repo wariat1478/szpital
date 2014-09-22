@@ -195,6 +195,7 @@ namespace Szpital
             }            
         }
 
+
         private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -218,5 +219,24 @@ namespace Szpital
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void addTreatment_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            showTreatmentAdd((string)button.Tag);
+        }
+
+        private void showTreatmentAdd(string patientId)
+        {
+            addTreatmentPanel.Visible = true;
+           //
+        }
+
+        private void saveTreatment_Click(object sender, EventArgs e)
+        {
+            addTreatmentPanel.Visible = false;
+        }
+
+
     }
 }
