@@ -227,6 +227,20 @@ namespace Szpital
             return false;
         }
 
+
+        public bool saveTreatment(string text, string cardId)
+        {
+            string query = string.Format("INSERT INTO leczenie (karta_id, opis, kiedy) VALUES ('{0}','{1}',now())",cardId ,text);
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public List<Dictionary<string, string>> getTreatment(string cardId)
         {
             List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();

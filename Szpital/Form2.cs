@@ -127,6 +127,9 @@ namespace Szpital
 
             editCard.Tag = patient["id"];
 
+            Dictionary<string, string> card = DB.Instance.getCard(patientId);
+            saveTreatment.Tag = card["id"];
+
             treatmentBody.Controls.Clear();
             List<Dictionary<string, string>> list = DB.Instance.getTreatment(patient["karta"]);
             for (int i = 0; i < list.Count; i++)
@@ -176,6 +179,7 @@ namespace Szpital
         private void showCardForm(string patientId)
         {
             editCardForm.Visible = true;
+            addTreatmentPanel.Visible = false;
             Dictionary<string, string> card = DB.Instance.getCard(patientId);
 
             sala.Text = card["sala"];
@@ -183,6 +187,7 @@ namespace Szpital
             data_przyjecia.Text = card["data_przyjecia"];
             data_wypisu.Text = card["data_wypisu"];
             save_button.Tag = card["id"];
+            
         }
 
         private void save_button_Click(object sender, EventArgs e)
@@ -234,7 +239,14 @@ namespace Szpital
 
         private void saveTreatment_Click(object sender, EventArgs e)
         {
-            addTreatmentPanel.Visible = false;
+            Button button = (Button)sender;
+
+            if (DB.Instance.saveTreatment(textTreatment.Text, (string)button.Tag))
+            {
+                addTreatmentPanel.Visible = false;
+                textTreatment.Text = " ";
+            }            
+            
         }
 
 

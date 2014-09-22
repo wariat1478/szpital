@@ -32,6 +32,9 @@
             this.body = new System.Windows.Forms.Panel();
             this.content = new System.Windows.Forms.Panel();
             this.addTreatmentPanel = new System.Windows.Forms.Panel();
+            this.saveTreatment = new System.Windows.Forms.Button();
+            this.textTreatment = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.editCardForm = new System.Windows.Forms.Panel();
             this.save_button = new System.Windows.Forms.Button();
             this.data_wypisu = new System.Windows.Forms.TextBox();
@@ -82,11 +85,6 @@
             this.minimizeButton = new System.Windows.Forms.Button();
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textTreatment = new System.Windows.Forms.TextBox();
-            this.dataTreatment = new System.Windows.Forms.TextBox();
-            this.saveTreatment = new System.Windows.Forms.Button();
             this.body.SuspendLayout();
             this.content.SuspendLayout();
             this.addTreatmentPanel.SuspendLayout();
@@ -141,14 +139,40 @@
             this.addTreatmentPanel.BackColor = System.Drawing.Color.Transparent;
             this.addTreatmentPanel.Controls.Add(this.saveTreatment);
             this.addTreatmentPanel.Controls.Add(this.textTreatment);
-            this.addTreatmentPanel.Controls.Add(this.dataTreatment);
             this.addTreatmentPanel.Controls.Add(this.label6);
-            this.addTreatmentPanel.Controls.Add(this.label5);
             this.addTreatmentPanel.Location = new System.Drawing.Point(0, 0);
             this.addTreatmentPanel.Name = "addTreatmentPanel";
             this.addTreatmentPanel.Size = new System.Drawing.Size(598, 274);
             this.addTreatmentPanel.TabIndex = 27;
             this.addTreatmentPanel.Visible = false;
+            // 
+            // saveTreatment
+            // 
+            this.saveTreatment.Location = new System.Drawing.Point(356, 172);
+            this.saveTreatment.Name = "saveTreatment";
+            this.saveTreatment.Size = new System.Drawing.Size(75, 23);
+            this.saveTreatment.TabIndex = 26;
+            this.saveTreatment.Text = "zapisz";
+            this.saveTreatment.UseVisualStyleBackColor = true;
+            this.saveTreatment.Click += new System.EventHandler(this.saveTreatment_Click);
+            // 
+            // textTreatment
+            // 
+            this.textTreatment.AccessibleName = "textTreatment";
+            this.textTreatment.Location = new System.Drawing.Point(160, 113);
+            this.textTreatment.Multiline = true;
+            this.textTreatment.Name = "textTreatment";
+            this.textTreatment.Size = new System.Drawing.Size(271, 20);
+            this.textTreatment.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(120, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Wpis:";
             // 
             // editCardForm
             // 
@@ -764,52 +788,6 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(121, 120);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Data:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(120, 153);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Wpis:";
-            // 
-            // textTreatment
-            // 
-            this.textTreatment.AccessibleName = "textTreatment";
-            this.textTreatment.Location = new System.Drawing.Point(177, 153);
-            this.textTreatment.Multiline = true;
-            this.textTreatment.Name = "textTreatment";
-            this.textTreatment.Size = new System.Drawing.Size(271, 20);
-            this.textTreatment.TabIndex = 25;
-            // 
-            // dataTreatment
-            // 
-            this.dataTreatment.AccessibleName = "dataTreatment";
-            this.dataTreatment.Location = new System.Drawing.Point(177, 116);
-            this.dataTreatment.Multiline = true;
-            this.dataTreatment.Name = "dataTreatment";
-            this.dataTreatment.Size = new System.Drawing.Size(271, 20);
-            this.dataTreatment.TabIndex = 24;
-            // 
-            // saveTreatment
-            // 
-            this.saveTreatment.Location = new System.Drawing.Point(373, 219);
-            this.saveTreatment.Name = "saveTreatment";
-            this.saveTreatment.Size = new System.Drawing.Size(75, 23);
-            this.saveTreatment.TabIndex = 26;
-            this.saveTreatment.Text = "zapisz";
-            this.saveTreatment.UseVisualStyleBackColor = true;
-            this.saveTreatment.Click += new System.EventHandler(this.saveTreatment_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -899,8 +877,6 @@
         private System.Windows.Forms.Panel addTreatmentPanel;
         private System.Windows.Forms.Button saveTreatment;
         private System.Windows.Forms.TextBox textTreatment;
-        private System.Windows.Forms.TextBox dataTreatment;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
     }
 }
