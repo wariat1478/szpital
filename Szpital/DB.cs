@@ -129,7 +129,7 @@ namespace Szpital
         {
             Dictionary<string, string> row = new Dictionary<string, string>();
 
-            string query = string.Format("SELECT p.*, k.sala, k.rozpoznanie, k.data_przyjecia, k.data_wypisu FROM pacjenci p LEFT JOIN karty k ON (p.id=k.pacjent_id) WHERE p.id={0} order by data_przyjecia desc", patientId);
+            string query = string.Format("SELECT p.*, k.id as karta, k.sala, k.rozpoznanie, k.data_przyjecia, k.data_wypisu FROM pacjenci p LEFT JOIN karty k ON (p.id=k.pacjent_id) WHERE p.id={0} order by data_przyjecia desc", patientId);
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader dataReader = cmd.ExecuteReader();

@@ -31,6 +31,17 @@
             this.footer = new System.Windows.Forms.Panel();
             this.body = new System.Windows.Forms.Panel();
             this.content = new System.Windows.Forms.Panel();
+            this.editCardForm = new System.Windows.Forms.Panel();
+            this.save_button = new System.Windows.Forms.Button();
+            this.data_wypisu = new System.Windows.Forms.TextBox();
+            this.data_przyjecia = new System.Windows.Forms.TextBox();
+            this.rozpoznanie = new System.Windows.Forms.TextBox();
+            this.sala = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.treatment = new System.Windows.Forms.Panel();
             this.patientDetails = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.cardDateOut = new System.Windows.Forms.TextBox();
@@ -65,29 +76,20 @@
             this.minimizeButton = new System.Windows.Forms.Button();
             this.maximizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.editCardForm = new System.Windows.Forms.Panel();
-            this.save_button = new System.Windows.Forms.Button();
-            this.data_wypisu = new System.Windows.Forms.TextBox();
-            this.data_przyjecia = new System.Windows.Forms.TextBox();
-            this.rozpoznanie = new System.Windows.Forms.TextBox();
-            this.sala = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.treatment = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.treatmentHeader = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.treatmentBody = new System.Windows.Forms.Panel();
             this.body.SuspendLayout();
             this.content.SuspendLayout();
+            this.editCardForm.SuspendLayout();
+            this.treatment.SuspendLayout();
             this.patientDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.controls.SuspendLayout();
-            this.editCardForm.SuspendLayout();
-            this.treatment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +126,119 @@
             this.content.Name = "content";
             this.content.Size = new System.Drawing.Size(598, 274);
             this.content.TabIndex = 14;
+            // 
+            // editCardForm
+            // 
+            this.editCardForm.Controls.Add(this.save_button);
+            this.editCardForm.Controls.Add(this.data_wypisu);
+            this.editCardForm.Controls.Add(this.data_przyjecia);
+            this.editCardForm.Controls.Add(this.rozpoznanie);
+            this.editCardForm.Controls.Add(this.sala);
+            this.editCardForm.Controls.Add(this.label4);
+            this.editCardForm.Controls.Add(this.label3);
+            this.editCardForm.Controls.Add(this.label2);
+            this.editCardForm.Controls.Add(this.label1);
+            this.editCardForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editCardForm.Location = new System.Drawing.Point(0, 0);
+            this.editCardForm.Name = "editCardForm";
+            this.editCardForm.Size = new System.Drawing.Size(598, 274);
+            this.editCardForm.TabIndex = 13;
+            this.editCardForm.Visible = false;
+            // 
+            // save_button
+            // 
+            this.save_button.Location = new System.Drawing.Point(404, 203);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(75, 23);
+            this.save_button.TabIndex = 26;
+            this.save_button.Text = "Zapisz";
+            this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            // 
+            // data_wypisu
+            // 
+            this.data_wypisu.AccessibleName = "data_wypisu";
+            this.data_wypisu.Location = new System.Drawing.Point(208, 146);
+            this.data_wypisu.Multiline = true;
+            this.data_wypisu.Name = "data_wypisu";
+            this.data_wypisu.Size = new System.Drawing.Size(271, 20);
+            this.data_wypisu.TabIndex = 25;
+            // 
+            // data_przyjecia
+            // 
+            this.data_przyjecia.AccessibleName = "data_przyjecia";
+            this.data_przyjecia.Location = new System.Drawing.Point(208, 113);
+            this.data_przyjecia.Multiline = true;
+            this.data_przyjecia.Name = "data_przyjecia";
+            this.data_przyjecia.Size = new System.Drawing.Size(271, 20);
+            this.data_przyjecia.TabIndex = 24;
+            // 
+            // rozpoznanie
+            // 
+            this.rozpoznanie.AccessibleName = "rozpoznanie";
+            this.rozpoznanie.Location = new System.Drawing.Point(208, 79);
+            this.rozpoznanie.Multiline = true;
+            this.rozpoznanie.Name = "rozpoznanie";
+            this.rozpoznanie.Size = new System.Drawing.Size(271, 20);
+            this.rozpoznanie.TabIndex = 23;
+            // 
+            // sala
+            // 
+            this.sala.AccessibleName = "sala";
+            this.sala.Location = new System.Drawing.Point(208, 48);
+            this.sala.Multiline = true;
+            this.sala.Name = "sala";
+            this.sala.Size = new System.Drawing.Size(271, 20);
+            this.sala.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(120, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Data wypisu:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(120, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Data przyjecia:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(120, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Rozpoznanie:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(120, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Sala: ";
+            // 
+            // treatment
+            // 
+            this.treatment.Controls.Add(this.treatmentBody);
+            this.treatment.Controls.Add(this.pictureBox4);
+            this.treatment.Controls.Add(this.textBox9);
+            this.treatment.Controls.Add(this.treatmentHeader);
+            this.treatment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treatment.Location = new System.Drawing.Point(0, 0);
+            this.treatment.Name = "treatment";
+            this.treatment.Size = new System.Drawing.Size(598, 274);
+            this.treatment.TabIndex = 14;
+            this.treatment.Visible = false;
             // 
             // patientDetails
             // 
@@ -577,124 +692,13 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // editCardForm
+            // treatmentHeader
             // 
-            this.editCardForm.Controls.Add(this.save_button);
-            this.editCardForm.Controls.Add(this.data_wypisu);
-            this.editCardForm.Controls.Add(this.data_przyjecia);
-            this.editCardForm.Controls.Add(this.rozpoznanie);
-            this.editCardForm.Controls.Add(this.sala);
-            this.editCardForm.Controls.Add(this.label4);
-            this.editCardForm.Controls.Add(this.label3);
-            this.editCardForm.Controls.Add(this.label2);
-            this.editCardForm.Controls.Add(this.label1);
-            this.editCardForm.Location = new System.Drawing.Point(0, 0);
-            this.editCardForm.Name = "editCardForm";
-            this.editCardForm.Size = new System.Drawing.Size(14, 192);
-            this.editCardForm.TabIndex = 13;
-            this.editCardForm.Visible = false;
-            // 
-            // save_button
-            // 
-            this.save_button.Location = new System.Drawing.Point(404, 203);
-            this.save_button.Name = "save_button";
-            this.save_button.Size = new System.Drawing.Size(75, 23);
-            this.save_button.TabIndex = 26;
-            this.save_button.Text = "Zapisz";
-            this.save_button.UseVisualStyleBackColor = true;
-            this.save_button.Click += new System.EventHandler(this.save_button_Click);
-            // 
-            // data_wypisu
-            // 
-            this.data_wypisu.AccessibleName = "data_wypisu";
-            this.data_wypisu.Location = new System.Drawing.Point(208, 146);
-            this.data_wypisu.Multiline = true;
-            this.data_wypisu.Name = "data_wypisu";
-            this.data_wypisu.Size = new System.Drawing.Size(271, 20);
-            this.data_wypisu.TabIndex = 25;
-            // 
-            // data_przyjecia
-            // 
-            this.data_przyjecia.AccessibleName = "data_przyjecia";
-            this.data_przyjecia.Location = new System.Drawing.Point(208, 113);
-            this.data_przyjecia.Multiline = true;
-            this.data_przyjecia.Name = "data_przyjecia";
-            this.data_przyjecia.Size = new System.Drawing.Size(271, 20);
-            this.data_przyjecia.TabIndex = 24;
-            // 
-            // rozpoznanie
-            // 
-            this.rozpoznanie.AccessibleName = "rozpoznanie";
-            this.rozpoznanie.Location = new System.Drawing.Point(208, 79);
-            this.rozpoznanie.Multiline = true;
-            this.rozpoznanie.Name = "rozpoznanie";
-            this.rozpoznanie.Size = new System.Drawing.Size(271, 20);
-            this.rozpoznanie.TabIndex = 23;
-            // 
-            // sala
-            // 
-            this.sala.AccessibleName = "sala";
-            this.sala.Location = new System.Drawing.Point(208, 48);
-            this.sala.Multiline = true;
-            this.sala.Name = "sala";
-            this.sala.Size = new System.Drawing.Size(271, 20);
-            this.sala.TabIndex = 22;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(120, 149);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Data wypisu:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(120, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Data przyjecia:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(120, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Rozpoznanie:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Sala: ";
-            // 
-            // treatment
-            // 
-            this.treatment.Controls.Add(this.pictureBox4);
-            this.treatment.Controls.Add(this.textBox9);
-            this.treatment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treatment.Location = new System.Drawing.Point(0, 0);
-            this.treatment.Name = "treatment";
-            this.treatment.Size = new System.Drawing.Size(598, 274);
-            this.treatment.TabIndex = 14;
-            this.treatment.Visible = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::Szpital.Properties.Resources.dots;
-            this.pictureBox4.Location = new System.Drawing.Point(100, 31);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(160, 5);
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
+            this.treatmentHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.treatmentHeader.Location = new System.Drawing.Point(0, 0);
+            this.treatmentHeader.Name = "treatmentHeader";
+            this.treatmentHeader.Size = new System.Drawing.Size(598, 52);
+            this.treatmentHeader.TabIndex = 23;
             // 
             // textBox9
             // 
@@ -707,6 +711,24 @@
             this.textBox9.Size = new System.Drawing.Size(79, 13);
             this.textBox9.TabIndex = 21;
             this.textBox9.Text = "Leczenie";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::Szpital.Properties.Resources.dots;
+            this.pictureBox4.Location = new System.Drawing.Point(100, 31);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(160, 5);
+            this.pictureBox4.TabIndex = 22;
+            this.pictureBox4.TabStop = false;
+            // 
+            // treatmentBody
+            // 
+            this.treatmentBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treatmentBody.Location = new System.Drawing.Point(0, 52);
+            this.treatmentBody.Name = "treatmentBody";
+            this.treatmentBody.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.treatmentBody.Size = new System.Drawing.Size(598, 222);
+            this.treatmentBody.TabIndex = 24;
             // 
             // Form2
             // 
@@ -721,6 +743,10 @@
             this.Text = "Form2";
             this.body.ResumeLayout(false);
             this.content.ResumeLayout(false);
+            this.editCardForm.ResumeLayout(false);
+            this.editCardForm.PerformLayout();
+            this.treatment.ResumeLayout(false);
+            this.treatment.PerformLayout();
             this.patientDetails.ResumeLayout(false);
             this.patientDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -728,10 +754,6 @@
             this.header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.controls.ResumeLayout(false);
-            this.editCardForm.ResumeLayout(false);
-            this.editCardForm.PerformLayout();
-            this.treatment.ResumeLayout(false);
-            this.treatment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
@@ -789,5 +811,7 @@
         private System.Windows.Forms.Panel treatment;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Panel treatmentHeader;
+        private System.Windows.Forms.Panel treatmentBody;
     }
 }

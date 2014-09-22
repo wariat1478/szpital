@@ -22,6 +22,10 @@ namespace Szpital
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        private const int EM_GETLINECOUNT = 0xba;
+        [DllImport("user32", EntryPoint = "SendMessageA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        private static extern int SendMessage(int hwnd, int wMsg, int wParam, int lParam);
+
         public Form2()
         {
             //this.CenterToScreen();
@@ -123,16 +127,44 @@ namespace Szpital
 
             editCard.Tag = patient["id"];
 
-            patientDetails.Visible = true;
-            treatment.Visible = true;
-
-            /*List<Dictionary<string, string>> list = DB.Instance.getTreatment(patientId);
-
-            patientTreatment.Text = "Leczenie: " + Environment.NewLine + Environment.NewLine;
+            treatmentBody.Controls.Clear();
+            List<Dictionary<string, string>> list = DB.Instance.getTreatment(patient["karta"]);
             for (int i = 0; i < list.Count; i++)
             {
-                patientTreatment.Text = patientTreatment.Text + list[i]["kiedy"] + " " + list[i]["opis"] + Environment.NewLine;
-            }*/
+                Panel treat = new Panel();
+                treat.Parent = treatmentBody;
+                treat.Dock = DockStyle.Top;
+
+                TextBox desc = new TextBox();
+                TextBox when = new TextBox();
+
+                DateTime date;
+                DateTime.TryParseExact(list[i]["kiedy"], "yyyy-MM-dd HH:mm:ss", null, System.Globalization.DateTimeStyles.None, out date);
+
+                desc.Text = list[i]["opis"];
+                when.Text = date.ToString("dd.MM.yyyy HH:mm");
+
+                when.Parent = desc.Parent = treat;
+                when.Dock   = desc.Dock = DockStyle.Left;
+
+                when.BackColor = desc.BackColor = Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+                when.BorderStyle = desc.BorderStyle = BorderStyle.None;
+                when.Cursor = desc.Cursor = Cursors.Arrow;
+                when.Font = desc.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(238)));
+                when.ReadOnly = desc.ReadOnly = true;
+
+                when.Size = new Size(120, 0);
+
+                desc.Multiline = true;
+                desc.Size = new Size(treat.Width - 120, 0);
+
+                int numberOfLines = SendMessage(desc.Handle.ToInt32(), EM_GETLINECOUNT, 0, 0);
+                desc.Height = treat.Height = (desc.Font.Height + 2) * numberOfLines;
+            }
+
+            editCardForm.Visible = false;
+            patientDetails.Visible = true;
+            treatment.Visible = true;
         }
 
         private void editCard_Click(object sender, EventArgs e)
