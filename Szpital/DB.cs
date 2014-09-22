@@ -52,7 +52,7 @@ namespace Szpital
 
         public bool checkUser(string username, string password)
         {
-            string query = "SELECT count(*) FROM konta WHERE nazwa_uzytkownika='@username' AND haslo='@password'";
+            string query = "SELECT count(*) FROM konta WHERE nazwa_uzytkownika=@username AND haslo=@password";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@username", username);
@@ -75,7 +75,7 @@ namespace Szpital
 
         public void setUser(string username)
         {
-            string query = "SELECT * FROM konta WHERE nazwa_uzytkownika='@username'";
+            string query = "SELECT * FROM konta WHERE nazwa_uzytkownika=@username";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@username", username);
@@ -115,7 +115,7 @@ namespace Szpital
 
         public bool addEvent(string accountId, string type)
         {
-            string query = "INSERT INTO historia (konto_id, kiedy, typ) VALUES (@id, NOW(), '@type')";
+            string query = "INSERT INTO historia (konto_id, kiedy, typ) VALUES (@id, NOW(), @type)";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id", accountId);
@@ -233,7 +233,7 @@ namespace Szpital
 
         public bool saveCard(string room, string recognition, string date_in, string date_out, string cardId)
         {
-            string query = "UPDATE karty SET sala='@room', rozpoznanie='@recognition', data_przyjecia='@dateIn', data_wypisu='@dateOut' WHERE id=@id";
+            string query = "UPDATE karty SET sala=@room, rozpoznanie=@recognition, data_przyjecia=@dateIn, data_wypisu=@dateOut WHERE id=@id";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@room", room);
