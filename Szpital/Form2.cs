@@ -166,6 +166,7 @@ namespace Szpital
             }
 
             editCardForm.Visible = false;
+            addTreatmentPanel.Visible = false;
             patientDetails.Visible = true;
             treatment.Visible = true;
         }
@@ -234,7 +235,6 @@ namespace Szpital
         private void showTreatmentAdd(string patientId)
         {
             addTreatmentPanel.Visible = true;
-           //
         }
 
         private void saveTreatment_Click(object sender, EventArgs e)
@@ -245,10 +245,9 @@ namespace Szpital
             {
                 addTreatmentPanel.Visible = false;
                 textTreatment.Text = " ";
+
+                showPatient(DB.Instance.getPatientId((string)button.Tag));
             }            
-            
         }
-
-
     }
 }

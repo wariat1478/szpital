@@ -264,5 +264,24 @@ namespace Szpital
 
             return list;
         }
+
+        public string getPatientId(string card)
+        {
+            string query = "SELECT pacjent_id FROM karty WHERE id=@id";
+            string pacjent = "0";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", card);
+
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            if (dataReader.Read())
+            {
+                pacjent = dataReader.GetString(0);
+                dataReader.Close();
+            }
+
+            return pacjent;
+        }
     }
 }
